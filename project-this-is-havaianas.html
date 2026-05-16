@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rafa - This Is Havaianas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      body { font-family: 'Courier New', Courier, monospace; }
+      div.sidebar { padding: 200px 0 25px; }
+      div.sidebar > span { font-size: 1.1rem; font-weight: bold; }
+      nav > .footer { font-size: 0.8rem; }
+      nav > .social { font-size: 0.8rem; padding-bottom: 50px; }
+
+      :root {
+        --bs-body-color: #fff;
+        --bs-body-bg: #000;
+        --bs-border-color: #fff;
+        --bs-link-color: #fff;
+        --bs-link-hover-color: #fff;
+      }
+
+      body { color: #fff; background: #000; }
+
+      a,
+      a:visited,
+      a:hover,
+      a:active { color: #fff !important; text-decoration-color: #fff; }
+
+      .border,
+      .border-top,
+      .border-end,
+      .border-bottom,
+      .border-start { border-color: #fff !important; }
+
+      nav.site-sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 170px; height: 100vh; text-align: left; overflow-y: auto; z-index: 1030; }
+      nav.site-sidebar .sidebar { align-items: flex-start; text-align: left; }
+      nav.site-sidebar a { display: block; padding: 4px 0; text-align: left; text-transform: uppercase; }
+
+      .site-shell { min-height: 100vh; position: relative; }
+      .site-main { padding: 60px 60px 60px 80px; margin-left: 170px; }
+
+      nav.site-sidebar { padding-bottom: 16px; }
+      nav.site-sidebar .social { margin-top: auto; }
+      nav.site-sidebar .footer { padding-top: 8px; }
+      nav.site-sidebar .footer small { white-space: nowrap; display: block; }
+
+      .offcanvas { background: #000; color: #fff; border-color: #fff; box-shadow: none; }
+      .offcanvas-header { border-bottom: 1px solid #fff; }
+      .btn-close { opacity: 1; filter: invert(1); }
+
+      .project-title { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 16px; }
+      .project-role { font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 24px; }
+
+      /* Behance-style layout with flush images */
+      .project-content {
+        width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        background: #FFFDF0;
+      }
+      
+      .project-cover {
+        width: 100%;
+        margin-bottom: 0;
+      }
+      
+      .project-cover img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+      }
+      
+      .project-media {
+        margin-bottom: 0;
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+      }
+      
+      .project-media img, 
+      .project-media video,
+      .project-media .gif-container {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        max-width: 100%;
+      }
+      
+      .video-container {
+        position: relative;
+        width: 100%;
+        margin-bottom: 0;
+      }
+      
+      .text-section {
+        margin: 0;
+      }
+      
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+      }
+      
+      .two-column .column {
+        flex: 1;
+        min-width: 300px;
+      }
+      
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        margin-bottom: 0;
+      }
+      
+      .project-grid > div {
+        min-height: 100%;
+        display: flex;
+        align-items: stretch;
+      }
+      
+      .project-grid > div img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        max-width: 100%;
+      }
+      
+      /* Full-width absolute positioning for exact height control */
+      .fixed-height-images {
+        position: relative;
+        width: 100%;
+        height: 480px; /* Increased height */
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      
+      .image-pair {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      
+      .magic-container {
+        position: relative;
+        width: 40%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+      }
+      
+      .heart-container {
+        position: relative;
+        width: 60%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: hidden;
+      }
+      
+      .magic-container img,
+      .heart-container img {
+        position: relative;
+        height: 480px; /* Increased height */
+        width: auto;
+        display: block;
+        max-width: none;
+      }
+      
+      /* Equal row for two images with exact same height */
+      .equal-row {
+        display: flex;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+      }
+      
+      .image-half {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+      }
+      
+      .image-half:first-child {
+        flex: 0.42;
+      }
+      
+      .image-half:last-child {
+        flex: 0.58;
+      }
+      
+      .image-half img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      /* Custom class for flush image pairs */
+      .flush-image-pair {
+        padding: 0;
+        gap: 0;
+        font-size: 0; /* Remove whitespace between inline elements */
+        overflow: visible;
+        border-spacing: 0;
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: -15px; /* Offset container padding */
+        margin-right: -15px;
+      }
+      
+      /* Table-based layout for no-gap images */
+      .no-gap-container {
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        font-size: 0; /* Remove font space */
+        line-height: 0;
+        display: block;
+      }
+      
+      .image-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0;
+        padding: 0;
+        height: 450px;
+      }
+      
+      .left-cell {
+        width: 65%;
+        height: 450px;
+        padding: 0;
+        margin: 0;
+        vertical-align: top;
+      }
+      
+      .right-cell {
+        width: 35%;
+        height: 450px;
+        padding: 0;
+        margin: 0;
+        vertical-align: top;
+      }
+      
+      .full-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .chair-magazine-pair .image-half {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        display: inline-block;
+      }
+      
+      .chair-magazine-pair .image-half:first-child {
+        width: 65%;
+        flex: none;
+      }
+      
+      .chair-magazine-pair .image-half:last-child {
+        width: 35%;
+        flex: none;
+      }
+      
+      .chair-magazine-pair .image-half img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+      
+      @media (max-width: 991.98px) {
+        .equal-row {
+          height: 400px;
+        }
+      }
+      
+      @media (max-width: 767.98px) {
+        .equal-row {
+          flex-direction: column;
+          height: auto;
+        }
+        
+        .image-half,
+        .image-half:first-child,
+        .image-half:last-child {
+          width: 100%;
+          flex: 1 1 auto;
+          height: auto;
+        }
+        
+        .image-half img {
+          width: 100%;
+          height: auto;
+          max-height: none;
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        .full-width-pair {
+          height: 360px;
+        }
+        
+        .left-image,
+        .right-image {
+          height: 360px;
+        }
+      }
+      
+      @media (max-width: 767.98px) {
+        .full-width-pair {
+          flex-direction: column;
+          height: auto;
+        }
+        
+        .left-image-container,
+        .right-image-container {
+          width: 100%;
+          height: auto;
+        }
+        
+        .left-image,
+        .right-image {
+          width: 100%;
+          height: auto;
+        }
+      }
+      
+      @media (max-width: 991.98px) {
+        .fixed-height-images {
+          height: 360px;
+        }
+        
+        .magic-container img,
+        .heart-container img {
+          height: 360px;
+        }
+      }
+      
+      @media (max-width: 767.98px) {
+        .fixed-height-images {
+          height: auto;
+        }
+        
+        .image-pair {
+          position: relative;
+          flex-direction: column;
+        }
+        
+        .magic-container,
+        .heart-container {
+          width: 100%;
+          height: auto;
+          justify-content: center;
+        }
+        
+        .magic-container img,
+        .heart-container img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+        }
+      }
+      
+      .project-grid.three-column {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      /* Remove any potential horizontal overflow */
+      html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      
+      /* Adjust main content area to fit between sidebar and edge */
+      .site-main {
+        max-width: calc(100vw - 170px);
+        overflow-x: hidden;
+        box-sizing: border-box;
+        padding-top: 40px;
+        padding-right: 40px;
+      }
+      
+      /* Fix for mobile */
+      @media (max-width: 767.98px) {
+        .site-main {
+          max-width: 100vw;
+          padding-right: 0;
+        }
+      }
+      
+      @media (max-width: 991.98px) {
+        .site-main { padding: 24px 16px; }
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+        .project-grid.three-column {
+          grid-template-columns: 1fr;
+        }
+        div.sidebar { padding: 40px 0 25px; }
+      }
+      
+      @media (max-width: 767.98px) {
+        nav.site-sidebar {
+          display: none;
+        }
+        
+        main.site-main {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex site-shell">
+      <nav class="site-sidebar d-none d-md-flex flex-column border-end p-4">
+        <div class="sidebar d-flex flex-column gap-2">
+          <a href="about.html" class="text-decoration-none fw-bold" style="font-size:1.1rem;">Rafael<br />Monti</a>
+        </div>
+        <a href="about.html" class="text-decoration-none">About</a>
+        <a href="index.html" class="text-decoration-none">Work</a>
+        <a href="awards.html" class="text-decoration-none">Awards</a>
+        <a href="bts.html" class="text-decoration-none">BTS</a>
+        <a href="contact.html" class="text-decoration-none">Contact</a>
+        <div class="social d-flex flex-column gap-1 mt-auto pt-3">
+          <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+        </div>
+        <div class="footer pt-3">
+          <small>&copy; 2026 Rafael Monti</small>
+        </div>
+      </nav>
+
+      <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="sidebarOffcanvasLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="d-flex flex-column gap-2">
+            <a class="text-decoration-none" href="about.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">About</a>
+            <a class="fw-semibold text-decoration-none" href="index.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Work</a>
+            <a class="text-decoration-none" href="awards.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Awards</a>
+            <a class="text-decoration-none" href="bts.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">BTS</a>
+            <a class="text-decoration-none" href="contact.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Contact</a>
+            <div class="pt-3">
+              <a class="text-decoration-none" href="https://www.instagram.com/r_montis" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="site-main flex-grow-1">
+        <div class="d-md-none mb-4">
+          <button class="btn btn-outline-light rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+        </div>
+
+        <div class="project-title">This Is Havaianas</div>
+        <div class="project-role">ROLE | DIRECTOR, ANIMATION</div>
+        
+        <div class="project-content">
+          <!-- Cover Image -->
+          <div class="project-cover">
+            <img src="assets/havaianas/001 top page image_small.png" alt="This Is Havaianas" />
+          </div>
+          
+          <!-- Project Description -->
+          <div class="project-media">
+            <img src="assets/havaianas/002 project description text.png" alt="Project Description" />
+          </div>
+          
+          <!-- Video Embed -->
+          <div class="video-container">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe src="https://player.vimeo.com/video/726763983?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                      frameborder="0" 
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                      referrerpolicy="strict-origin-when-cross-origin" 
+                      style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                      title="THIS IS HAVAIANAS DC | Maldita">
+              </iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+          </div>
+          
+          <!-- GIFs and other media -->
+          <div class="project-media">
+            <img src="assets/havaianas/004 football_small.gif" alt="Football Animation" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/005 surf flip_small.gif" alt="Surf Flip Animation" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/006 hvn display.gif" alt="Havaianas Display" />
+          </div>
+          
+          <div class="project-grid">
+            <div>
+              <img src="assets/havaianas/007 character design.png" alt="Character Design" />
+            </div>
+            <div>
+              <img src="assets/havaianas/008 assets_small.png" alt="Project Assets" />
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/009 concept art.png" alt="Concept Art" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/010 3d havaianas walk_small.gif" alt="3D Havaianas Walk" />
+          </div>
+          
+          <div class="project-media">
+            <div class="equal-row">
+              <div class="image-half">
+                <img src="assets/havaianas/011 magic havaianas.gif" alt="Magic Havaianas">
+              </div>
+              <div class="image-half">
+                <img src="assets/havaianas/012 heart hvn.jpg" alt="Heart Havaianas">
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/013 car_small.gif" alt="Car Animation" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/014 hvn everywhere.gif" alt="Havaianas Everywhere" />
+          </div>
+          
+          <div class="project-grid">
+            <div>
+              <img src="assets/havaianas/015 surfing hvn_small.png" alt="Surfing Havaianas" />
+            </div>
+            <div>
+              <img src="assets/havaianas/016 hvn test_small.gif" alt="Havaianas Test" />
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/017 this is brazil.png" alt="This is Brazil" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/018 characters concept_small.png" alt="Characters Concept" />
+          </div>
+
+          <div class="project-media">
+            <img src="assets/havaianas/019 character final_small.png" alt="Character Final" />
+          </div>
+          
+          <div class="project-media">
+            <div style="display: flex; align-items: flex-start;">
+              <div style="flex: 1920; min-width: 0;">
+                <img src="assets/havaianas/020 chair reference_small.jpg" alt="Chair Reference" style="width: 100%; height: auto; display: block;">
+              </div>
+              <div style="flex: 997; min-width: 0;">
+                <img src="assets/havaianas/021 magazine.gif" alt="Magazine Animation" style="width: 100%; height: auto; display: block;">
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <div class="equal-row">
+              <div class="image-half">
+                <img src="assets/havaianas/022 blink.gif" alt="Blink Animation">
+              </div>
+              <div class="image-half">
+                <img src="assets/havaianas/023 models.jpg" alt="Models">
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-grid">
+            <div>
+              <img src="assets/havaianas/024 flying.png" alt="Flying" />
+            </div>
+            <div>
+              <img src="assets/havaianas/025 bath.png" alt="Bath" />
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; margin-bottom: -12.5%;">
+            <div style="flex: 1; min-width: 0;">
+              <img src="assets/havaianas/026 character design.png" alt="Character Design" style="width: 100%; height: auto; display: block; transform: scale(1.25); transform-origin: top left;">
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <img src="assets/havaianas/027 character face_small.gif" alt="Character Face Animation" style="width: 100%; height: auto; display: block; transform: scale(0.75); transform-origin: top right;">
+            </div>
+          </div>
+          
+          <div class="project-grid">
+            <div>
+              <img src="assets/havaianas/028 flow animation_small.gif" alt="Flow Animation" />
+            </div>
+            <div>
+              <img src="assets/havaianas/029 hippie.webp" alt="Hippie" />
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/030 hippie references_small.jpg" alt="Hippie References" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/031 mixed media text.png" alt="Mixed Media Text" />
+          </div>
+          
+          <div class="project-media">
+            <div class="equal-row">
+              <div class="image-half">
+                <img src="assets/havaianas/032 main idea.gif" alt="Main Idea">
+              </div>
+              <div class="image-half">
+                <img src="assets/havaianas/033 zoom in.gif" alt="Zoom In Animation">
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/034 hvn balls.gif" alt="Havaianas Balls Animation" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/035 character 2d to 3d_small.gif" alt="Character 2D to 3D Transition" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/036 macro 3d.gif" alt="Macro 3D Animation" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/037 hvn brasil.webp" alt="Havaianas Brasil" />
+          </div>
+
+          <div class="project-media">
+            <div class="equal-row">
+              <div class="image-half" style="flex: 1;">
+                <img src="assets/havaianas/038 drink with hvn.jpg" alt="Drink with Havaianas">
+              </div>
+              <div class="image-half" style="flex: 1;">
+                <img src="assets/havaianas/039 hvn clean_small.jpg" alt="Clean Havaianas">
+              </div>
+              <div class="image-half" style="flex: 1;">
+                <img src="assets/havaianas/040 old man.jpg" alt="Old Man">
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/041 breakdown text.png" alt="Breakdown Text" />
+          </div>
+          
+          <div class="project-media">
+            <div style="display: flex; width: 100%; align-items: flex-start;">
+              <div style="flex: 1236; min-width: 0;">
+                <img src="assets/havaianas/042 character ages.png" alt="Character Ages" style="width: 100%; height: auto; display: block;">
+              </div>
+              <div style="flex: 675; min-width: 0;">
+                <img src="assets/havaianas/043 character transformation.gif" alt="Character Transformation" style="width: 100%; height: auto; display: block;">
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/044 city of god reference break down_small.gif" alt="City of God Reference" />
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/045 brasil symbols_small.jpg" alt="Brasil Symbols" />
+          </div>
+          
+          <div class="project-media">
+            <div style="display: flex; width: 100%; align-items: flex-start;">
+              <div style="flex: 758; min-width: 0;">
+                <img src="assets/havaianas/046 football girl.gif" alt="Football Girl" style="width: 100%; height: auto; display: block;">
+              </div>
+              <div style="flex: 758; min-width: 0;">
+                <img src="assets/havaianas/047 football rough.gif" alt="Football Rough" style="width: 100%; height: auto; display: block;">
+              </div>
+              <div style="flex: 910; min-width: 0;">
+                <img src="assets/havaianas/048 goalkeeper.gif" alt="Goalkeeper" style="width: 100%; height: auto; display: block;">
+              </div>
+            </div>
+          </div>
+
+          <div class="project-media">
+            <div style="display: flex; width: 100%; align-items: flex-start;">
+              <div style="flex: 1920; min-width: 0;">
+                <img src="assets/havaianas/049 characters running_small.gif" alt="Characters Running" style="width: 100%; height: auto; display: block;">
+              </div>
+              <div style="flex: 827; min-width: 0;">
+                <img src="assets/havaianas/050 character idea.gif" alt="Character Idea" style="width: 100%; height: auto; display: block;">
+              </div>
+            </div>
+          </div>
+
+          <div class="project-media">
+            <img src="assets/havaianas/051 kombi.jpg" alt="Kombi" style="width: 100%; height: auto; display: block;">
+          </div>
+
+          <div class="project-media">
+            <img src="assets/havaianas/052 3d to 2d_small.gif" alt="3D to 2D" style="width: 100%; height: auto; display: block;">
+          </div>
+
+          <div class="project-media">
+            <div style="display: flex; width: 100%; align-items: flex-start;">
+              <div style="flex: 810; min-width: 0;">
+                <img src="assets/havaianas/053 car reveal.gif" alt="Car Reveal" style="width: 100%; height: auto; display: block;">
+              </div>
+              <div style="flex: 827; min-width: 0;">
+                <img src="assets/havaianas/054 kombi animation.gif" alt="Kombi Animation" style="width: 100%; height: auto; display: block;">
+              </div>
+              <div style="flex: 844; min-width: 0;">
+                <img src="assets/havaianas/055 kombi animation 2.gif" alt="Kombi Animation 2" style="width: 100%; height: auto; display: block;">
+              </div>
+            </div>
+          </div>
+
+          <div class="project-media">
+            <img src="assets/havaianas/056 original sound track text.png" alt="Original Sound Track" style="width: 100%; height: auto; display: block;">
+          </div>
+          
+          <div class="project-media">
+            <img src="assets/havaianas/057 girl pool.gif" alt="Girl Pool" />
+          </div>
+          
+          <div class="project-media text-center" style="padding: 20px 0;">
+            <img src="assets/havaianas/058 thank you text.png" alt="Thank You" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rafa - Ashe Versus | Moderna U.S. Open</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      body { font-family: 'Courier New', Courier, monospace; }
+      div.sidebar {
+        padding: 200px 0 25px;
+      }
+      div.sidebar > span {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+      nav > .footer {
+        font-size: 0.8rem;
+      }
+      nav > .social {
+        font-size: 0.8rem;
+        padding-bottom: 50px;
+      }
+
+      :root {
+        --bs-body-color: #fff;
+        --bs-body-bg: #000;
+        --bs-border-color: #fff;
+        --bs-link-color: #fff;
+        --bs-link-hover-color: #fff;
+      }
+
+      body {
+        color: #fff;
+        background: #000;
+      }
+
+      a,
+      a:visited,
+      a:hover,
+      a:active {
+        color: #fff !important;
+        text-decoration-color: #fff;
+      }
+
+      .border,
+      .border-top,
+      .border-end,
+      .border-bottom,
+      .border-start {
+        border-color: #fff !important;
+      }
+
+      nav.site-sidebar {
+        width: 170px;
+        text-align: left;
+      }
+
+      nav.site-sidebar .sidebar {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      nav.site-sidebar a {
+        display: block;
+        padding: 4px 0;
+        text-align: left;
+        text-transform: uppercase;
+      }
+
+      .site-shell {
+        min-height: 100vh;
+        position: relative;
+      }
+
+      nav.site-sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 170px;
+        height: 100vh;
+        overflow-y: auto;
+        padding-bottom: 16px;
+        z-index: 1030;
+      }
+      
+      main.site-main {
+        margin-left: 170px;
+      }
+
+      nav.site-sidebar .social {
+        margin-top: auto;
+      }
+
+      nav.site-sidebar .footer {
+        padding-top: 8px;
+      }
+
+      nav.site-sidebar .footer small {
+        white-space: nowrap;
+        display: block;
+      }
+
+      .site-main {
+        padding: 60px 60px 60px 80px;
+      }
+
+      .offcanvas {
+        background: #000;
+        color: #fff;
+        border-color: #fff;
+        box-shadow: none;
+      }
+
+      .offcanvas-header {
+        border-bottom: 1px solid #fff;
+      }
+
+      .btn-close { opacity: 1; filter: invert(1); }
+
+      .project-hero {
+        width: auto;
+        border: 1px solid #fff;
+        background: #000;
+        height: 260px;
+        margin-top: -60px;
+        margin-left: -80px;
+        margin-right: -60px;
+        margin-bottom: 24px;
+        overflow: hidden;
+      }
+
+      .project-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      @media (min-width: 768px) {
+        .project-hero {
+          border-left: 0;
+        }
+      }
+
+      .project-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin-bottom: 16px;
+      }
+
+      .project-role {
+        font-size: 0.85rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin-bottom: 24px;
+      }
+
+      .project-body {
+        max-width: 110ch;
+        font-size: 0.75rem;
+        line-height: 1.65;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      .project-video {
+        width: min(760px, 92%);
+        aspect-ratio: 16 / 9;
+        border: 1px solid #fff;
+        background: #000;
+        margin: 70px auto 0;
+      }
+
+      .project-video iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      @media (max-width: 991.98px) {
+        .site-main {
+          padding: 24px 16px;
+        }
+
+        .project-hero {
+          margin-top: -24px;
+          margin-left: -16px;
+          margin-right: -16px;
+        }
+
+        div.sidebar {
+          padding: 40px 0 25px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        nav.site-sidebar {
+          display: none;
+        }
+        
+        main.site-main {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex site-shell">
+      <nav class="site-sidebar d-none d-md-flex flex-column border-end p-4">
+        <div class="sidebar d-flex flex-column gap-2">
+          <a href="about.html" class="text-decoration-none fw-bold" style="font-size:1.1rem;">Rafael<br />Monti</a>
+        </div>
+        <a href="about.html" class="text-decoration-none">About</a>
+        <a href="index.html" class="text-decoration-none">Work</a>
+        <a href="awards.html" class="text-decoration-none">Awards</a>
+        <a href="bts.html" class="text-decoration-none">BTS</a>
+        <a href="contact.html" class="text-decoration-none">Contact</a>
+        <div class="social d-flex flex-column gap-1 mt-auto pt-3">
+          <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+        </div>
+        <div class="footer pt-3">
+          <small>&copy; 2026 Rafael Monti</small>
+        </div>
+      </nav>
+
+      <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="sidebarOffcanvasLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="d-flex flex-column gap-2">
+            <a class="text-decoration-none" href="about.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">About</a>
+            <a class="fw-semibold text-decoration-none" href="index.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Work</a>
+            <a class="text-decoration-none" href="awards.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Awards</a>
+            <a class="text-decoration-none" href="bts.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">BTS</a>
+            <a class="text-decoration-none" href="bts.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">BTS</a>
+            <a class="text-decoration-none" href="contact.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Contact</a>
+            <div class="pt-3">
+              <a class="text-decoration-none" href="https://www.instagram.com/r_montis" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="site-main flex-grow-1">
+        <div class="d-md-none mb-4">
+          <button class="btn btn-outline-light rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+        </div>
+
+        <div class="project-hero">
+          <img src="assets/ashe%20trophy.png" alt="Ashe Versus" />
+        </div>
+
+        <div class="project-title">Ashe Versus | Moderna U.S. Open</div>
+        <div class="project-role">ROLE | DIRECTOR, ANIMATION</div>
+        <div class="project-body">
+          ARTHUR ASHE WAS AN ELEGANT FORCETO BE RECKONED WITH. THE FIRST BLACK MAN TO WIN A GRAND SLAM IN THE WORLD OF TENNIS, A CIVIL RIGHTS ACTIVIST, HEALTH AWARENESS EDUCATOR, AND EMMY-AWARD WINNING WRITER, WE’RE CELEBRATING ASHE’S ACHIEVEMENTS IN OBSERVANCE OF BLACK HISTORY MONTH IN THE US, IN COLLABORATION WITH THE YOUTH COMPANY AND TBWA CHIAT NY. A MIXED MEDIA PROJECT, THIS SHORT FILM IS AN HOMAGE TO ARTHUR’S UNIQUE STYLE,ON AND OFF COURT. COMBINING VOICE RECORDINGS, PHOTOGRAPHS, AND ARCHIVAL FOOTAGE, THE FILM CELEBRATES HIS LIFE AND HONOURS HIS ENDURING LEGACY.
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://player.vimeo.com/video/909300493"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Ashe Versus | Moderna U.S. Open"
+          ></iframe>
+        </div>
+
+        <div style="margin-top: 70px;">
+          <img src="assets/ashe/02-ASHE-VERSUS-BEHANCE-v02-1_800p.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/03-ASHE-VERSUS-by-YOUTH27.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/05-ASHE-VERSUS-by-YOUTH3.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div>
+          <img src="assets/ashe/09-ashe cut C 08_3.gif" alt="Ashe Cut" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/ashe/12-Cidade_ashe_v4.png" alt="Ashe Cidade" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/ashe/13-USOpen_ClosePlaca_DiogoS_v1_230801.png" alt="US Open Close Placa" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/ashe/11-ASHE-VERSUS-by-YOUTH13.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/ashe/16-ASHE-VERSUS-Making-Of-240215.00_01_26_12.Still001.png" alt="Ashe Versus Making Of" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/ashe/17-ASHE-VERSUS-BEHANCE-v02-5.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 700; min-width: 0;">
+            <img src="assets/ashe/18-ashe cut C 26.gif" alt="Ashe Cut" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1400; min-width: 0;">
+            <img src="assets/ashe/19-Ashe_Estudos.png" alt="Ashe Estudos" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/20-Ashe_Concept_00.png" alt="Ashe Concept" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/21-Ashe_Play_lower.png" alt="Ashe Play" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div>
+          <img src="assets/ashe/24-ashe cut C 27.gif" alt="Ashe Cut" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/ashe/25-arthur-ashe_trofeu_v3.png" alt="Arthur Ashe Trofeu" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/27-Tom-Okker_v3.png" alt="Tom Okker" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/26-ASHE-VERSUS-BEHANCE-v02-4.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/28-arthur-ashe_rosto.png" alt="Arthur Ashe Rosto" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div>
+          <img src="assets/ashe/29-ashe cut C 09_1.gif" alt="Ashe Cut" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/34-ASHE-VERSUS-DC-by-YOUTH-ON-240216-prores422hq.00_00_59_18.Still005.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/35-ASHE-VERSUS-DC-by-YOUTH-ON-240216-prores422hq.00_00_56_07.Still006.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div>
+          <img src="assets/ashe/33-ashe cut C 10_1.gif" alt="Ashe Cut" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/42-ASHE-VERSUS-DC-by-YOUTH-ON-240216-prores422hq.00_01_22_15.Still003.png" alt="Ashe Versus" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/43-USOpen_Bola_DiogoS_v1_2_230626.png" alt="US Open Bola" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/41-ashe cut C 15_1.gif" alt="Ashe Cut" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/ashe/47-ashe cut C 20c.gif" alt="Ashe Cut" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div style="margin-top: 80px; padding-bottom: 80px; font-size: 0.75rem; line-height: 1.8; letter-spacing: 0.02em; max-width: 70ch;">
+          <div style="font-weight: bold; margin-bottom: 16px;">CREDITS</div>
+
+          <div style="font-weight: bold; margin-bottom: 16px;">ASHE VERSUS</div>
+
+          <div style="margin-bottom: 16px;">
+            Directed by YOUTH + Duran Sodré<br>
+            Animation Director: Maldita
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            This short film is an homage to Arthur Ashe's singular style on and off the court.<br>
+            Voice recordings, photos, and archival footage were combined with our impression<br>
+            of this great man to celebrate his history and legacy.
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Production Company: THE YOUTH<br>
+            DOP: Yuri Maranhão<br>
+            Production Designer: Martino Piccinini<br>
+            Animation Art Director / Lead Illustrator: Marilia Mafe<br>
+            Styling: Ana Paula Cardoso<br>
+            Makeup: Westerley Borba<br>
+            Props Master: Fernanda Câmara<br>
+            Executive Producer: Carol Cherobim<br>
+            Account: Carol Cherobim, Camila Pires e Lu Krasa<br>
+            Director of Production: Claudia Cavalheiro<br>
+            Casting: Renata Scheidt<br>
+            AD: Milton Gonçalves<br>
+            Editor: João Machado<br>
+            DOP 2nd Unit 16mm: Leonardo Salomão<br>
+            Making Of: Diego Cagnato<br>
+            Time Bullet Analog Stills: Lab Lab - Vitor Leite, Maria Mion<br>
+            Music: Satélite Audio
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Post Production: COLOSSAL<br>
+            Head of Post Production: Daniel Maia<br>
+            Producer: Mauricio Kazu Yamashita<br>
+            Post Production Coordinator: Daniel Maia, Yasmim Uehara<br>
+            Post Production Coordinator Assistant: Nicole Lia Rêgo da Silva<br>
+            Head of Art: João Machado<br>
+            VFX Supervisor: Rodrigo Stradiotto<br>
+            Lead Concept Artists: Marilia Mafe, Diogo Saraiva<br>
+            Concept Artist: Fabio Miraglia, Bruno Rosal, Fernando Nas, Diox, Lucas Oliveira<br>
+            2D Animation Supervisor: André Ruivo<br>
+            Lead 2D Animation: Rodrigo Numecaniq<br>
+            2D Animation: André Ruivo, Josias Bosio, Diones Ignacio, Anderson Omori, Gabriel Chagas, Bremo, Alan Jose Dias, Guadalupe<br>
+            Clean Up and Painting: Diogo Saraiva, Marilia Mafé, Rodrigo Numecaniq, Bruno Rosal, Daniel Cramer, Anderson Omori, Mayumi Takahash, Danila Ribeiro, Thallyson Silvestre, Rafael Fernandes<br>
+            2D Compositing: Adelir Boeira<br>
+            Motion Graphics: Adelir Boeira e Janaina da Veiga<br>
+            Compositing: Diego Morone e Michel Takahashi<br>
+            Stills Retouch: Livia Rabelo<br>
+            Conform and Delivery: Lu Lima, Victor Balestrim, Ricardo Jug<br>
+            Storyboard: Walfrido Monteiro, Bruno Rosa<br>
+            Color Grading: Erick Moraes
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Agency: TBWA Chiat NY<br>
+            Client: MODERNA<br>
+            Creatives: Bruno Bomediano, Victor Toyofuku, Mateus Coelho.<br>
+            Agency Producer: Jonathan Cohen
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Music<br>
+            Soundtrack Company: Satelite Áudio<br>
+            Music Direction: Roberto Coelho, Kito Siqueira, Hurso Ambrifi<br>
+            Client Services: Fernanda Costa, Renata Schincariol and Daniel Chasin<br>
+            Creative Producer: Roberto Coelho, Hurso Ambrifi, Thiago Colli, Charly Coombes and Koitty<br>
+            Creative Producer Assistant: Alexandre Avicena<br>
+            Post Production and Mixing: Carla Cornea, Vithor Moraes, Arthur Dossa and Iran Ribas<br>
+            Post Production Assistant: Esteban Romero<br>
+            Production Coordinator: Camila Guedes, Letícia Oliveira, Bea Vieira, Mariana Tardelli.
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Case Study Copy: Jed Herold.
+          </div>
+
+          <div>
+            Voice recordings, photos, and archival footage courtesy of the BBC documentary "Citizen Ashe."<br>
+            Additional photos by John G. Zimmerman.<br>
+            The use of these materials are intended for educational and artistic purposes only.<br>
+            This is an homage to Arthur Ashe's legacy and history and no promotion is intended.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
