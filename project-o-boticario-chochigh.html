@@ -3,53 +3,56 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rafa - O Boticario | Chochigh</title>
+    <title>Rafa - Choc High | O Boticario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
       body { font-family: 'Courier New', Courier, monospace; }
-      div.sidebar { padding: 200px 0 25px; }
+      div.sidebar { padding: 160px 0 25px; }
       div.sidebar > span { font-size: 1.1rem; font-weight: bold; }
       nav > .footer { font-size: 0.8rem; }
       nav > .social { font-size: 0.8rem; padding-bottom: 50px; }
 
       :root {
-        --bs-body-color: #fff;
-        --bs-body-bg: #000;
-        --bs-border-color: #fff;
-        --bs-link-color: #fff;
-        --bs-link-hover-color: #fff;
+        --bs-body-color: #000;
+        --bs-body-bg: #fff8ee;
+        --bs-border-color: #000;
+        --bs-link-color: #000;
+        --bs-link-hover-color: #000;
       }
 
-      body { color: #fff; background: #000; }
+      body { color: #000; background: #fff8ee; }
 
       a,
       a:visited,
       a:hover,
-      a:active { color: #fff !important; text-decoration-color: #fff; }
+      a:active { color: #000 !important; text-decoration-color: #000; }
 
       .border,
       .border-top,
       .border-end,
       .border-bottom,
-      .border-start { border-color: #fff !important; }
+      .border-start { border-color: #000 !important; }
 
-      nav.site-sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 170px; height: 100vh; text-align: left; overflow-y: auto; z-index: 1030; }
-      nav.site-sidebar .sidebar { align-items: flex-start; text-align: left; }
+      nav.site-sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 170px; height: 100vh; text-align: left; align-items: center; overflow-y: auto; overflow-x: hidden; z-index: 1030; }
+      nav.site-sidebar .sidebar { align-items: center; text-align: left; }
       nav.site-sidebar a { display: block; padding: 4px 0; text-align: left; text-transform: uppercase; }
+      nav.site-sidebar a:not(.sidebar-logo-link) { margin-left: 31px; }
+
 
       .site-shell { min-height: 100vh; position: relative; }
       .site-main { padding: 60px 60px 60px 80px; margin-left: 170px; }
 
-      nav.site-sidebar { padding-bottom: 16px; }
-      nav.site-sidebar .social { margin-top: auto; }
-      nav.site-sidebar .footer { padding-top: 8px; }
+      nav.site-sidebar { padding-bottom: 16px; padding-top: 24px; padding-left: 15px; padding-right: 15px; }
+      nav.site-sidebar .social { margin-top: auto; margin-bottom: auto; font-size: 0.6rem; }
+      nav.site-sidebar .social a { padding: 1px 0; }
+      nav.site-sidebar .footer { position: absolute; bottom: 16px; left: 24px; font-size: 0.62rem; }
       nav.site-sidebar .footer small { white-space: nowrap; display: block; }
 
-      .offcanvas { background: #000; color: #fff; border-color: #fff; box-shadow: none; }
-      .offcanvas-header { border-bottom: 1px solid #fff; }
-      .btn-close { opacity: 1; filter: invert(1); }
+      .offcanvas { background: #fff8ee; color: #000; border-color: #000; box-shadow: none; }
+      .offcanvas-header { border-bottom: 1px solid #000; }
+      .btn-close { opacity: 1; filter: none; }
 
-      .project-hero { width: 100%; border: 1px solid #fff; background: #000; height: 260px; margin-bottom: 24px; }
+      .project-hero { width: 100%; border: 1px solid #000; background: #fff8ee; height: 260px; margin-bottom: 24px; }
 
       .project-hero {
         width: auto;
@@ -77,10 +80,10 @@
       .project-body { max-width: 70ch; font-size: 0.9rem; line-height: 1.55; }
 
       .project-video {
-        width: min(760px, 92%);
+        width: min(760px, 60vw);
         aspect-ratio: 16 / 9;
-        border: 1px solid #fff;
-        background: #000;
+        border: 1px solid #000;
+        background: #fff8ee;
         margin: 70px auto 0;
       }
 
@@ -89,6 +92,19 @@
         height: 100%;
         border: 0;
         display: block;
+      }
+
+      .project-text-video-row {
+        display: block;
+      }
+
+      .project-text-video-row .project-body {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .project-text-video-row .project-video {
+        margin: 70px auto 0;
       }
 
       @media (max-width: 991.98px) {
@@ -100,6 +116,15 @@
           margin-right: -16px;
         }
         div.sidebar { padding: 40px 0 25px; }
+
+        .project-text-video-row {
+          flex-direction: column;
+        }
+
+        .project-text-video-row .project-video {
+          flex: 0 0 auto;
+          width: 100%;
+        }
       }
       
       @media (max-width: 767.98px) {
@@ -115,23 +140,23 @@
   </head>
   <body>
     <div class="d-flex site-shell">
-      <nav class="site-sidebar d-none d-md-flex flex-column border-end p-4">
+      <nav class="site-sidebar d-none d-md-flex flex-column border-end"><div style="display:flex;flex-direction:column;flex:1;width:fit-content;align-items:flex-start;margin:0 auto;">
         <div class="sidebar d-flex flex-column gap-2">
-          <a href="about.html" class="text-decoration-none fw-bold" style="font-size:1.1rem;">Rafael<br />Monti</a>
+          <a href="about.html" class="text-decoration-none sidebar-logo-link"><img src="assets/MONTI_motion_v03.png" alt="Rafael Monti" style="width: 140px; height: auto; display: block;"></a>
         </div>
         <a href="about.html" class="text-decoration-none">About</a>
         <a href="index.html" class="text-decoration-none">Work</a>
         <a href="awards.html" class="text-decoration-none">Awards</a>
         <a href="bts.html" class="text-decoration-none">BTS</a>
         <a href="contact.html" class="text-decoration-none">Contact</a>
-        <div class="social d-flex flex-column gap-1 mt-auto pt-3">
+        <div class="social d-flex flex-column gap-0 pt-3">
           <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/rafael-monti-7b039855/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
         </div>
         <div class="footer pt-3">
           <small>&copy; 2026 Rafael Monti</small>
         </div>
-      </nav>
+      </div></nav>
 
       <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header">
@@ -154,21 +179,22 @@
 
       <main class="site-main flex-grow-1">
         <div class="d-md-none mb-4">
-          <button class="btn btn-outline-light rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+          <button class="btn btn-outline-dark rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
         </div>
 
         <div class="project-hero">
           <img src="assets/boticario chochigh/001 cover.jpg" alt="O Boticario Chochigh">
         </div>
 
-        <div class="project-title">O Boticario | Chochigh</div>
-        <div class="project-role">ROLE | POSITION</div>
-        <div class="project-body">
-          Replace this text with the project description.
-        </div>
+        <div class="project-title">Choc High | O Boticario</div>
+        <div class="project-role">ROLE | ANIMATION DIRECTOR</div>
+        <div class="project-text-video-row">
+          <div class="project-body">
+          </div>
 
-        <div class="project-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/ffv5A-kcdt0?si=uN7OhALcvYlU1ucM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="project-video">
+            <iframe src="https://player.vimeo.com/video/1056097339?dnt=1&app_id=122963" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
 
         <div style="margin-top: 70px;">
@@ -209,9 +235,185 @@
         <div>
           <img src="assets/boticario chochigh/3d sky.png" alt="3D Sky" style="width: 100%; height: auto; display: block;">
         </div>
+
+        <div>
+          <img src="assets/boticario chochigh/NEW/01_CONCEPTS_CHOC.webp" alt="Concepts Choc" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/boticario chochigh/NEW/03_image_2024_11_11T21_44_23_234Z-1.webp" alt="Boticario 03" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+            <source src="assets/boticario chochigh/NEW/04_proporcao_view_port.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div>
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+            <source src="assets/boticario chochigh/NEW/05_ChocoRoupa.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div>
+          <img src="assets/boticario chochigh/NEW/06_SH80_EGEO_LKD_LUP_241210_v02.webp" alt="Boticario 06" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/7_SH20_EGEO_LKD_Lup_241209_v05_redimencionado.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/boticario chochigh/NEW/7_Morango_Lookdev_RS_V06.webp" alt="Morango Lookdev" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/boticario chochigh/NEW/7_SH10_EGEO_LKD_LUP_241210_v03.webp" alt="Boticario 7 SH10" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div>
+          <img src="assets/boticario chochigh/NEW/08_SH100_EGEO_LKD_LUP_241210_v04.webp" alt="Boticario 08" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/09_CHOCOLATE_dance_01.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/09_MORANGO_dance-01.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/09_MORANGO_walk_01.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/boticario chochigh/NEW/10_SH40_EGEO_LKD_LUP_241209_v03.webp" alt="Boticario 10 SH40" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/boticario chochigh/NEW/10_SH50_EGEO_LKD_Lup_241209_v02.webp" alt="Boticario 10 SH50" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/11_SHOT_080.0004.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <img src="assets/boticario chochigh/NEW/11_filme_01.webp" alt="Boticario 11" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+
+        <div style="display: flex; width: 100%; align-items: flex-start;">
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/15_SH110_EGEO_LKD_Renan_241209_v02_1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/15_Vento_3d.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/boticario chochigh/NEW/15_Vento_live.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+            <source src="assets/boticario chochigh/NEW/16_BCH_ANIMA_BL_16x9_15s_02.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div>
+          <img src="assets/boticario chochigh/NEW/17_cenario.webp" alt="Boticario 17" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+            <source src="assets/boticario chochigh/NEW/18 breakdown_pack_1280x720_25fps.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div>
+          <img src="assets/boticario chochigh/NEW/19_image-23.webp" alt="Boticario 19" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/boticario chochigh/NEW/20_egeo_v015.webp" alt="Boticario 20" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="margin-top: 80px; padding-bottom: 80px; font-size: 0.75rem; line-height: 2; max-width: 700px;">
+          <p style="font-weight: bold; letter-spacing: 0.1em; margin-bottom: 4px;">CREDITS</p>
+          <p style="font-weight: bold; letter-spacing: 0.05em; margin-bottom: 24px;">EGEO CHOC HIGH</p>
+
+          <p>Directed by MALDITA</p>
+          <p style="margin-bottom: 16px;">Production Company: THE YOUTH<br>
+          Post-Production Company: COLOSSAL<br>
+          Executive Creative Director: João Machado, Eduardo Lubiazi, Diogo Gameiro<br>
+          Executive Producer: Carol Cherobim, Chico Pedreira<br>
+          Head of Production: Daniel Maia<br>
+          Producer: Mauricio Kazu<br>
+          Post-Production Coordinator: Yasmim Uehara, Livia Portugal, Pamela Aparecida de Almeida<br>
+          Assistant Post-Production Coordinator: Nicole Lia Rêgo da Silva, Eduardo Harger, Alan José Dias<br>
+          Account: Carol Cherobim, Camila Pires e Lu Krasa<br>
+          Finance Department: Iza Lubiazi</p>
+
+          <p style="margin-bottom: 16px;">Animation Director: Maldita<br>
+          Editor: Rafael Rodrigues, Victor Balestrin, Maldita<br>
+          Conform and Delivery: Victor Balestrin, Ricardo Jug<br>
+          Compositing: Rafael Chiavegatti, Michel Takahashi<br>
+          Motion Graphics: Janaina da Veiga, Gabriel Rocha<br>
+          Colorist: Erick Moraes<br>
+          Casting Choreography: Amanda Villar</p>
+
+          <p style="margin-bottom: 16px;">Storyboard: Walfrido Monteiro, Bruno Rosal<br>
+          Concept Artist: Fabio Miraglia, Bruno Rosal</p>
+
+          <p style="margin-bottom: 16px;">3D Coordinator: Yasmim Uehara, Lívia Portugal<br>
+          3D Supervisor: Diogo Gameiro, Rodrigo Stradiotto<br>
+          3D Character design: Pedro Conti<br>
+          3D Modeling: Pedro Conti, Tiago da Silva<br>
+          3D Environment: Lucas Lira, Leandro Beltran<br>
+          3D Previz Animation: Everton Schneider<br>
+          3D Rigging: Felipe Papa Gimenes<br>
+          3D Simulation: Everton Schneider<br>
+          3D Animation: Alexandre Teixeira Pinto Eschenbach, Larissa Cardoso Paz<br>
+          3D LookDev: Lucas Pereira, Leandro Beltran, Renan Santa Terra.<br>
+          3D Render: Lucas Pereira, Renan Santa Terra, Leandro Beltran, Felipe Zentil, Advaldo Vieira Alves, Guilherme Vasca.</p>
+
+          <p style="margin-bottom: 16px;">Produtora de áudio: Jamute<br>
+          Produção executiva de som: James Feeler<br>
+          Produção musical: James Feeler e Leck Gomes<br>
+          Engenharia de som: André Melges, Eduardo Barbosa, Marcelo Filho e Otávio Bertolo<br>
+          Coordenação: Julianna Zuppo, Letícia Nunes, Juliana Pompeu<br>
+          Atendimento: Hingrit Nitsche, Kiki Eisenbraun e Carol Oliveira</p>
+
+          <p>Agency: ALMAP BBDO<br>
+          Client: O BOTICÁRIO<br>
+          Approver: Marcela de Masi, Carolina Carrasco, Eduardo Rebola, Ligia Monteiro, Ágata Bresil, Mariana Fiordelice, Laura Yanaguibashi, Thais Ferreira e Suellen Burgoa.<br>
+          Creatives: Philippe Degen, Mozar Gudin, Rafael Reis, Victor Laars, Lucca Gulminetti, Pedro Zillmer<br>
+          Agency Producer: Diego Villas Boas, Juliana Henriques, Giuliano Springhetti, Bruna Rocha</p>
+        </div>
       </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
   </body>
 </html>

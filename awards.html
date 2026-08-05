@@ -9,39 +9,83 @@
       body { font-family: 'Courier New', Courier, monospace; }
 
       :root {
-        --bs-body-color: #fff;
-        --bs-body-bg: #000;
-        --bs-border-color: #fff;
-        --bs-link-color: #fff;
-        --bs-link-hover-color: #fff;
+        --bs-body-color: #000;
+        --bs-body-bg: #fff8ee;
+        --bs-border-color: #000;
+        --bs-link-color: #000;
+        --bs-link-hover-color: #000;
       }
 
-      body { color: #fff; background: #000; }
+      /* Ticker bar */
+      .ticker-bar {
+        position: fixed;
+        top: 0; left: 170px; right: 0;
+        height: 40px;
+        background: #fff8ee;
+        color: #000;
+        overflow: hidden;
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #000;
+      }
+      .ticker-track {
+        display: flex;
+        white-space: nowrap;
+        animation: ticker-scroll 30s linear infinite;
+      }
+      @keyframes ticker-scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
 
-      a, a:visited, a:hover, a:active { color: #fff !important; text-decoration-color: #fff; }
+      body { color: #000; background: #fff8ee; padding-top: 40px; }
 
-      .border, .border-top, .border-end, .border-bottom, .border-start { border-color: #fff !important; }
+      a, a:visited, a:hover, a:active { color: #000 !important; text-decoration-color: #000; }
+
+      .border, .border-top, .border-end, .border-bottom, .border-start { border-color: #000 !important; }
 
       nav.site-sidebar {
         position: fixed; top: 0; bottom: 0; left: 0;
-        width: 170px; height: 100vh; text-align: left;
-        overflow-y: auto; padding-bottom: 16px; z-index: 1030;
+        width: 170px; height: 100vh; text-align: left; align-items: center;
+        overflow-y: auto; overflow-x: hidden; padding-bottom: 16px; padding-top: 24px; padding-left: 15px; padding-right: 15px; z-index: 1030;
       }
-      div.sidebar { padding: 200px 0 25px; }
-      nav.site-sidebar .sidebar { align-items: flex-start; text-align: left; }
+      div.sidebar { padding: 160px 0 25px; }
+      nav.site-sidebar .sidebar { align-items: center; text-align: left; }
       nav.site-sidebar a { display: block; padding: 4px 0; text-align: left; text-transform: uppercase; }
-      nav.site-sidebar .social { margin-top: auto; font-size: 0.8rem; padding-bottom: 50px; }
-      nav.site-sidebar .footer { padding-top: 8px; font-size: 0.8rem; }
+      nav.site-sidebar a:not(.sidebar-logo-link) { margin-left: 31px; }
+
+      nav.site-sidebar .social { margin-top: auto; margin-bottom: auto; font-size: 0.6rem; }
+      nav.site-sidebar .social a { padding: 1px 0; }
+      nav.site-sidebar .footer { position: absolute; bottom: 16px; left: 24px; font-size: 0.62rem; }
       nav.site-sidebar .footer small { white-space: nowrap; display: block; }
 
-      .site-shell { min-height: 100vh; position: relative; }
+      .site-shell { min-height: calc(100vh - 40px); position: relative; }
       .site-main { padding: 60px 60px 60px 80px; margin-left: 170px; }
 
-      .offcanvas { background: #000; color: #fff; border-color: #fff; box-shadow: none; }
-      .offcanvas-header { border-bottom: 1px solid #fff; }
-      .btn-close { opacity: 1; filter: invert(1); }
+      .offcanvas { background: #fff8ee; color: #000; border-color: #000; box-shadow: none; }
+      .offcanvas-header { border-bottom: 1px solid #000; }
+      .btn-close { opacity: 1; filter: none; }
 
-      .award-row { width: fit-content; }
+      .award-row {
+        width: fit-content;
+        background-size: 0% 100%;
+        background-repeat: no-repeat;
+        background-position: left center;
+        transition: background-size 0.5s ease-out, color 0.3s ease-out;
+      }
+      .award-row:hover { background-size: 100% 100%; }
+
+      .award-row[data-medal="gold"]    { background-image: linear-gradient(#ffbc00, #ffbc00); }
+      .award-row[data-medal="silver"]  { background-image: linear-gradient(#c2c7ce, #c2c7ce); }
+      .award-row[data-medal="bronze"]  { background-image: linear-gradient(#e2895d, #e2895d); }
+      .award-row[data-medal="behance"] { background-image: linear-gradient(#0057ff, #0057ff); }
+      .award-row[data-medal="granprix"]  { background-image: linear-gradient(#70ff00, #70ff00); }
+      .award-row[data-medal="black"]   { background-image: linear-gradient(#000, #000); }
+      .award-row[data-medal="black"]:hover { color: #fff8ee; }
 
       .awards-table thead {
         display: none;
@@ -81,24 +125,30 @@
     </style>
   </head>
   <body>
+    <div class="ticker-bar">
+      <div class="ticker-track">
+        <span>AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ &nbsp;&nbsp;&nbsp;</span>
+        <span>AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ AWARDS ☺︎ RECOGNITION ☹ &nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
     <div class="d-flex site-shell">
-      <nav class="site-sidebar d-none d-md-flex flex-column border-end p-4">
+      <nav class="site-sidebar d-none d-md-flex flex-column border-end"><div style="display:flex;flex-direction:column;flex:1;width:fit-content;align-items:flex-start;margin:0 auto;">
         <div class="sidebar d-flex flex-column gap-2">
-          <a href="about.html" class="text-decoration-none fw-bold" style="font-size:1.1rem;">Rafael<br />Monti</a>
+          <a href="about.html" class="text-decoration-none sidebar-logo-link"><img src="assets/MONTI_motion_v03.png" alt="Rafael Monti" style="width: 140px; height: auto; display: block;"></a>
         </div>
         <a href="about.html" class="text-decoration-none">About</a>
         <a href="index.html" class="text-decoration-none">Work</a>
         <a href="awards.html" class="text-decoration-none">Awards</a>
         <a href="bts.html" class="text-decoration-none">BTS</a>
         <a href="contact.html" class="text-decoration-none">Contact</a>
-        <div class="social d-flex flex-column gap-1 mt-auto pt-3">
+        <div class="social d-flex flex-column gap-0 pt-3">
           <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/rafael-monti-7b039855/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
         </div>
         <div class="footer pt-3">
           <small>&copy; 2026 Rafael Monti</small>
         </div>
-      </nav>
+      </div></nav>
 
       <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header">
@@ -121,179 +171,180 @@
 
       <main class="site-main flex-grow-1">
         <div class="d-md-none mb-4">
-          <button class="btn btn-outline-light rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+          <button class="btn btn-outline-dark rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
         </div>
 
         <section class="mb-5">
-          <h2 class="h6 mb-4" style="text-transform: uppercase; letter-spacing: 0.02em;">Awards</h2>
           <div style="font-size: 0.75rem; line-height: 1.8; letter-spacing: 0.02em;">
-              <div class="award-row">2023 — Ouro — Animation — Shots Asia — Tiger Beer</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Film Craft — Cannes Lions — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film Craft — Cannes Lions — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Health — Cannes Lions — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Direction — over 90sec — Ciclope Latino — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Editing — Ciclope Latino — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Film — Clio Health — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Film Craft — Clio Health — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Film Craft — Clio Sports — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Prata — Film — Clio Sports — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film Craft — Clio Sports — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Partnerships & Sponsorships — Clio Sports — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Wood Pencil — Pharma — D&AD — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Graphite Pencil — Mixed Media — D&AD — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Winner — Best of Film — Manny Awards — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Film Craft — New York Festival Health Awards — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film — New York Festival Health Awards — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Prata — Craft / Art Direction — One Show — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film — One Show — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gran Prix — Pharma & Medical Craft — LIA — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Pharma & Medical Craft — Art Direction — LIA — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Pharma & Medical Craft — Direction — LIA — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Pharma & Medical Craft — Editing — LIA — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Prata — Direction — Ciclope — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Filme / Montagem — CCSP — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Anuário — Filme / Animação — CCSP — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Anuário — Filme / Diretor — CCSP — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Direção — El Ojo de Iberoamerica — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Edição — El Ojo de Iberoamerica — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Ouro — Animação — El Ojo de Iberoamerica — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Prata — Produção — El Ojo de Iberoamerica — Ashe</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Direct — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Prata — Direct — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Creative Data — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gran Prix — Digital Craft — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Digital Craft — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Digital Craft — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Prata — Entertainment Lions for Music — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Prata — Creative B2B — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Creative B2B — Cannes Lions — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gran Prix — Creativity in B2B — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Branded Entertainment — Music Video — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Creative Use of Data — Data Visualization — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Creativity in B2B — B2B Craft — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Creativity in B2B — Entertainment and Media — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Digital — Innovative Use of Digital — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Direct — B2B Communication — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Direct — Digital — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Direct — Direct Mail — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Prata — Design — Direct Marketing — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Prata — Digital — Branded Content — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Ambient and Activation — B2B Communication — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Non-Traditional — Direct Marketing — LIA — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gran Prix — Innovation — Ciclope — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Ouro — Use of Data & AI — Ciclope — Spreadbeats</div>
-              <div class="award-row">2024 — Ouro — Social Good — Clio Music — The Black Grammys</div>
-              <div class="award-row">2024 — Bronze — Branded Entertainment & Content — Clio Music — The Black Grammys</div>
-              <div class="award-row">2024 — Prata — Design — Cannes Lions — The Black Grammys</div>
-              <div class="award-row">2024 — Ouro — Design — Zeitgeist — LIA — The Black Grammys</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2025 — Prata — Cinematography — Clio — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2025 — Prata — Direction — Clio — Ashe</div>
-              <div class="award-row" data-img="assets/ashe trophy.png">2025 — Bronze — Editing — Clio — Ashe</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Creative Use of Data — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Design — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Design Craft — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Direct — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Digital / Mobile — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Music — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Moving Image / Video Design — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Other — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Animation — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Specific Target Audience — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Art Direction — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Digital / Mobile — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Experience / Activation — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Creativity / Storytelling — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Music — Licensed — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Direct — Clio — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Digital / Mobile — Clio for Music — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Branded Entertainment & Content — Clio for Music — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Use of Music Innovation — Clio for Music — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Black Pencil — Digital Design — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Yellow Pencil — Art Direction — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Yellow Pencil — Illustration — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Yellow Pencil — Media Innovation — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Animation — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Art Direction — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Art Direction — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Digital Design — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Direct — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Direct — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Illustration — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Production Design — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — Digital Design — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — Entertainment — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — PR — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — Visual Effects — D&AD — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Black Cube — Best of Show — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Advertising — Best of Advertising — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Interactive — Best of Interactive — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Experiential Design — Best of Experiential Design — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Digital Craft / Content Strategy — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Direct / Mail — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Wildcard — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation / Direct — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Digital Craft / Art Direction — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Craft in Motion / Film / Motion Graphics — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Digital Craft / Use of Technology — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Animation / Single — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Art Direction / Motion — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Craft in Motion / Film / Animation — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Craft in Motion / Film / Use of Music / Sound — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Craft in Video / Animation — Single — ADC Awards — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Black Cube — Best of Show — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Branded Entertainment — Best of Branded Entertainment — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Creative Use of Data — Best of Creative Use of Data — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Direct Marketing — Best of Direct Marketing — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Moving Image Craft & Production — Best of Moving Image Craft & Production — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation / Use of Media in Film — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Use of Technology — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation in Moving Image Craft — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation / Execution in Interactive, Online, Mobile — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Craft / Art Direction — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Digital & Online — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Use of Technology — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Creative Use of Data — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Craft / Use of Technology — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation / Execution in Experiential — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Craft / Animation — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Digital & Online / Email & News — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation / Use of Media in Design — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Craft / Use of Technology — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation in Music & Sound Craft — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Craft / Animation — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation / Execution in Branded — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Innovation / Execution in Design — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Ouro — Data Visualization / Dynamic / Responsive — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Animation / Single — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Innovation / Use of Media in Radio — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Innovation / Execution in Direct — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — B2B Communications — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Innovation / New Ideas in Direct — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Moving Image / Single — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Craft / Use of Technology — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Innovation / Use of Media in Public — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Innovation / Execution in Film — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Prata — Innovation / Execution in Creative — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / Execution in Tech — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / Execution in Radio — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / Use of Media in Tech — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Technology as a Creative Tool — The One Show — Spreadbeats</div>
-              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / New Ideas in Creative — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/apart/02_apart.webp" data-medal="gold">2026 — Best in show — SIGGRAPH — Apart</div>
               <div class="award-row" data-img="assets/the wave/001_the wave cover.jpg">2025 — Silver — Animation / Design Craft — Clio Health — The Wave</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / New Ideas in Creative — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Technology as a Creative Tool — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / Use of Media in Tech — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / Execution in Radio — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation / Execution in Tech — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Innovation / Execution in Creative — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Innovation / Execution in Film — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Innovation / Use of Media in Public — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Craft / Use of Technology — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Moving Image / Single — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Innovation / New Ideas in Direct — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Innovation / Execution in Direct — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Innovation / Use of Media in Radio — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Animation / Single — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Data Visualization / Dynamic / Responsive — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation / Execution in Design — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation / Execution in Branded — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Craft / Animation — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation in Music & Sound Craft — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Craft / Use of Technology — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation / Use of Media in Design — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Digital & Online / Email & News — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Craft / Animation — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation / Execution in Experiential — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Craft / Use of Technology — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Creative Use of Data — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Use of Technology — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Digital & Online — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Craft / Art Direction — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation / Execution in Interactive, Online, Mobile — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation in Moving Image Craft — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Use of Technology — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation / Use of Media in Film — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — B2B Communications — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Moving Image Craft & Production — Best of Moving Image Craft & Production — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Direct Marketing — Best of Direct Marketing — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Creative Use of Data — Best of Creative Use of Data — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Branded Entertainment — Best of Branded Entertainment — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Black Cube — Best of Show — The One Show — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Craft in Video / Animation — Single — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Innovation — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Craft in Motion / Film / Use of Music / Sound — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Craft in Motion / Film / Animation — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Art Direction / Motion — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Animation / Single — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Digital Craft / Use of Technology — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Craft in Motion / Film / Motion Graphics — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Digital Craft / Art Direction — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation / Direct — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Wildcard — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Direct / Mail — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Digital Craft / Content Strategy — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Innovation — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Experiential Design — Best of Experiential Design — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Interactive — Best of Interactive — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Best of Advertising — Best of Advertising — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Black Cube — Best of Show — ADC Awards — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — Visual Effects — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — PR — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — Entertainment — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Wood Pencil — Digital Design — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Production Design — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Illustration — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Direct — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Direct — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Digital Design — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Art Direction — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Art Direction — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Graphite Pencil — Animation — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Yellow Pencil — Media Innovation — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Yellow Pencil — Illustration — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Yellow Pencil — Art Direction — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Black Pencil — Digital Design — D&AD — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Use of Music Innovation — Clio for Music — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Branded Entertainment & Content — Clio for Music — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Digital / Mobile — Clio for Music — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Direct — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Music — Licensed — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Creativity / Storytelling — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Bronze — Experience / Activation — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Digital / Mobile — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Silver — Art Direction — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Specific Target Audience — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Animation — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Other — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Moving Image / Video Design — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Music — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gold — Digital / Mobile — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Direct — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Design Craft — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Design — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2025 — Gran Prix — Creative Use of Data — Clio — Spreadbeats</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2025 — Bronze — Editing — Clio — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2025 — Silver — Direction — Clio — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2025 — Silver — Cinematography — Clio — Ashe</div>
+              <div class="award-row">2024 — Gold — Design — Zeitgeist — LIA — The Black Grammys</div>
+              <div class="award-row">2024 — Silver — Design — Cannes Lions — The Black Grammys</div>
+              <div class="award-row">2024 — Bronze — Branded Entertainment & Content — Clio Music — The Black Grammys</div>
+              <div class="award-row">2024 — Gold — Social Good — Clio Music — The Black Grammys</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Use of Data & AI — Ciclope — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gran Prix — Innovation — Ciclope — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Non-Traditional — Direct Marketing — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Ambient and Activation — B2B Communication — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Silver — Digital — Branded Content — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Silver — Design — Direct Marketing — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Direct — Direct Mail — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Direct — Digital — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Direct — B2B Communication — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Digital — Innovative Use of Digital — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Creativity in B2B — Entertainment and Media — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Creativity in B2B — B2B Craft — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Creative Use of Data — Data Visualization — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Branded Entertainment — Music Video — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gran Prix — Creativity in B2B — LIA — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Creative B2B — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Silver — Creative B2B — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Silver — Entertainment Lions for Music — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Digital Craft — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Digital Craft — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gran Prix — Digital Craft — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Bronze — Creative Data — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Silver — Direct — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/spotify spreadsheets/Spreadbeats3.gif">2024 — Gold — Direct — Cannes Lions — Spreadbeats</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Silver — Production — El Ojo de Iberoamerica — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Animation — El Ojo de Iberoamerica — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Editing — El Ojo de Iberoamerica — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Direction — El Ojo de Iberoamerica — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Annual — Film / Director — CCSP — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Annual — Film / Animation — CCSP — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Film / Editing — CCSP — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Silver — Direction — Ciclope — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Pharma & Medical Craft — Editing — LIA — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Pharma & Medical Craft — Direction — LIA — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Pharma & Medical Craft — Art Direction — LIA — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gran Prix — Pharma & Medical Craft — LIA — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film — One Show — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Silver — Craft / Art Direction — One Show — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film — New York Festival Health Awards — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Film Craft — New York Festival Health Awards — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Winner — Best of Film — Manny Awards — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Graphite Pencil — Mixed Media — D&AD — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Wood Pencil — Pharma — D&AD — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Partnerships & Sponsorships — Clio Sports — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film Craft — Clio Sports — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Silver — Film — Clio Sports — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Film Craft — Clio Sports — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Film Craft — Clio Health — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Film — Clio Health — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Editing — Ciclope Latino — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Direction — over 90sec — Ciclope Latino — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Health — Cannes Lions — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Bronze — Film Craft — Cannes Lions — Ashe</div>
+              <div class="award-row" data-img="assets/ashe trophy.png">2024 — Gold — Film Craft — Cannes Lions — Ashe</div>
+              <div class="award-row">2023 — Gold — Animation — Shots Asia — Tiger Beer</div>
+              <div class="award-row" data-img="assets/havaianas/00_havaianas cover_small.png">2022 — The Best Of Behance — This Is Havaianas</div>
           </div>
         </section>
 
@@ -305,14 +356,33 @@
           width: 260px;
           aspect-ratio: 16/9;
           overflow: hidden;
-          border: 1px solid #fff;
-          background: #000;
+          border: 1px solid #000;
+          background: #fff8ee;
           z-index: 9999;
         ">
           <img id="award-thumb-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
 
         <script>
+          // Assign medal colors
+          document.querySelectorAll('.award-row').forEach(function(row) {
+            var parts = row.textContent.trim().split(' — ');
+            var medal = parts.length > 1 ? parts[1].trim() : '';
+            if (/The Best Of Behance/i.test(medal)) {
+              row.dataset.medal = 'behance';
+            } else if (/Black Cube|Black Pencil/i.test(medal)) {
+              row.dataset.medal = 'black';
+            } else if (/Gran Prix/i.test(medal)) {
+              row.dataset.medal = 'granprix';
+            } else if (/Ouro|Gold|Yellow Pencil|Best of|Annual|Winner/i.test(medal)) {
+              row.dataset.medal = 'gold';
+            } else if (/Prata|Silver|Graphite Pencil/i.test(medal)) {
+              row.dataset.medal = 'silver';
+            } else if (/Bronze|Wood Pencil/i.test(medal)) {
+              row.dataset.medal = 'bronze';
+            }
+          });
+
           const thumb = document.getElementById('award-thumb');
           const thumbImg = document.getElementById('award-thumb-img');
           const offset = 20;

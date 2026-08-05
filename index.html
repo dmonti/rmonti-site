@@ -8,7 +8,7 @@
     <style>
       body { font-family: 'Courier New', Courier, monospace; }
       div.sidebar {
-        padding: 200px 0 25px;
+        padding: 160px 0 25px;
       }
       div.sidebar > span {
         font-size: 1.1rem;
@@ -23,24 +23,51 @@
       }
 
       :root {
-        --bs-body-color: #fff;
-        --bs-body-bg: #000;
-        --bs-border-color: #fff;
-        --bs-link-color: #fff;
-        --bs-link-hover-color: #fff;
+        --bs-body-color: #000;
+        --bs-body-bg: #fff8ee;
+        --bs-border-color: #000;
+        --bs-link-color: #000;
+        --bs-link-hover-color: #000;
+      }
+
+      /* Ticker bar */
+      .ticker-bar {
+        position: fixed;
+        top: 0; left: 170px; right: 0;
+        height: 40px;
+        background: #fff8ee;
+        color: #000;
+        overflow: hidden;
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #000;
+      }
+      .ticker-track {
+        display: flex;
+        white-space: nowrap;
+        animation: ticker-scroll 30s linear infinite;
+      }
+      @keyframes ticker-scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
       }
 
       body {
-        color: #fff;
-        background: #000;
+        color: #000;
+        background: #fff8ee;
+        padding-top: 40px;
       }
 
       a,
       a:visited,
       a:hover,
       a:active {
-        color: #fff !important;
-        text-decoration-color: #fff;
+        color: #000 !important;
+        text-decoration-color: #000;
       }
 
       .border,
@@ -48,17 +75,18 @@
       .border-end,
       .border-bottom,
       .border-start {
-        border-color: #fff !important;
+        border-color: #000 !important;
       }
 
 
       nav.site-sidebar {
         width: 170px;
         text-align: left;
+        align-items: center;
       }
 
       nav.site-sidebar .sidebar {
-        align-items: flex-start;
+        align-items: center;
         text-align: left;
       }
 
@@ -67,10 +95,12 @@
         padding: 4px 0;
         text-align: left;
         text-transform: uppercase;
-      }
+        }
+      nav.site-sidebar a:not(.sidebar-logo-link) { margin-left: 31px; }
+
 
       .site-shell {
-        min-height: 100vh;
+        min-height: calc(100vh - 40px);
         position: relative;
       }
 
@@ -81,8 +111,8 @@
         left: 0;
         width: 170px;
         height: 100vh;
-        overflow-y: auto;
-        padding-bottom: 16px;
+        overflow-y: auto; overflow-x: hidden;
+        padding-bottom: 16px; padding-top: 24px; padding-left: 15px; padding-right: 15px;
         z-index: 1030;
       }
       
@@ -90,13 +120,10 @@
         margin-left: 170px;
       }
 
-      nav.site-sidebar .social {
-        margin-top: auto;
-      }
+      nav.site-sidebar .social { margin-top: auto; margin-bottom: auto; font-size: 0.6rem; }
+      nav.site-sidebar .social a { padding: 1px 0; }
 
-      nav.site-sidebar .footer {
-        padding-top: 8px;
-      }
+      nav.site-sidebar .footer { position: absolute; bottom: 16px; left: 24px; font-size: 0.62rem; }
 
       nav.site-sidebar .footer small {
         white-space: nowrap;
@@ -107,17 +134,37 @@
         padding: 60px 60px 60px 80px;
       }
 
-      .work-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px 60px;
-        align-items: start;
+      .work-columns {
+        display: flex;
+        align-items: flex-start;
+        gap: 60px;
+      }
+
+      .work-col {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .work-col-label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1;
+      }
+
+      .work-col-spacer {
+        /* 56.25% = full 16:9 card height relative to col width;
+           +120px = WORK label + gap + caption + half gap offset */
+        padding-top: calc(28.125% + 64px);
       }
 
       .work-tile {
         width: 100%;
-        border: 1px solid #fff;
-        background: #000;
+        border: 1px solid #000;
+        background: #fff8ee;
         aspect-ratio: 16 / 9;
         display: flex;
         align-items: center;
@@ -134,16 +181,17 @@
 
       .work-caption {
         margin-top: 8px;
-        font-size: 0.75rem;
+        font-size: 0.9rem;
         letter-spacing: 0.02em;
         text-transform: uppercase;
+        width: fit-content;
       }
-
 
       .project-card {
         display: block;
         color: inherit;
         text-decoration: none;
+        pointer-events: none;
       }
 
       .project-card:hover,
@@ -153,27 +201,51 @@
         outline: none;
       }
 
-.offcanvas {
+      .project-card .work-tile,
+      .project-card .work-caption {
+        pointer-events: auto;
+      }
+
+      #role-tooltip {
+        position: fixed;
+        pointer-events: none;
+        display: none;
         background: #000;
         color: #fff;
-        border-color: #fff;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        white-space: nowrap;
+        z-index: 9999;
+      }
+
+.offcanvas {
+        background: #fff8ee;
+        color: #000;
+        border-color: #000;
         box-shadow: none;
       }
 
       .offcanvas-header {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #000;
       }
 
-      .btn-close { opacity: 1; filter: invert(1); }
+      .btn-close { opacity: 1; filter: none; }
 
       @media (max-width: 991.98px) {
         .site-main {
           padding: 24px 16px;
         }
 
-        .work-grid {
-          grid-template-columns: 1fr;
+        .work-columns {
+          flex-direction: column;
           gap: 28px;
+        }
+
+        .work-col-spacer {
+          display: none;
         }
       }
 
@@ -189,27 +261,33 @@
     </style>
   </head>
   <body>
+    <div class="ticker-bar">
+      <div class="ticker-track">
+        <span>WORK ☺︎ DIRECTION ☹ MOTION ☺︎ ANIMATION ☹ WHAT DO I DO ☺︎ WORK ☺︎ DIRECTION ☹ MOTION ☺︎ ANIMATION ☹ WHAT DO I DO ☺︎ WORK ☺︎ DIRECTION ☹ MOTION ☺︎ ANIMATION ☹ WHAT DO I DO ☺︎ &nbsp;&nbsp;&nbsp;</span>
+        <span>WORK ☺︎ DIRECTION ☹ MOTION ☺︎ ANIMATION ☹ WHAT DO I DO ☺︎ WORK ☺︎ DIRECTION ☹ MOTION ☺︎ ANIMATION ☹ WHAT DO I DO ☺︎ WORK ☺︎ DIRECTION ☹ MOTION ☺︎ ANIMATION ☹ WHAT DO I DO ☺︎ &nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
     <header>
     </header>
 
     <div class="d-flex site-shell">
-        <nav class="site-sidebar d-none d-md-flex flex-column border-end p-4">
+        <nav class="site-sidebar d-none d-md-flex flex-column border-end"><div style="display:flex;flex-direction:column;flex:1;width:fit-content;align-items:flex-start;margin:0 auto;">
           <div class="sidebar d-flex flex-column gap-2">
-            <a href="about.html" class="text-decoration-none fw-bold" style="font-size:1.1rem;">Rafael<br />Monti</a>
+            <a href="about.html" class="text-decoration-none sidebar-logo-link"><img src="assets/MONTI_motion_v03.png" alt="Rafael Monti" style="width: 140px; height: auto; display: block;"></a>
           </div>
           <a href="about.html" class="text-decoration-none">About</a>
           <a href="index.html" class="text-decoration-none">Work</a>
           <a href="awards.html" class="text-decoration-none">Awards</a>
           <a href="bts.html" class="text-decoration-none">BTS</a>
           <a href="contact.html" class="text-decoration-none">Contact</a>
-          <div class="social d-flex flex-column gap-1 mt-auto pt-3">
+          <div class="social d-flex flex-column gap-0 pt-3">
             <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
-            <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/rafael-monti-7b039855/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
           </div>
           <div class="footer pt-3">
             <small>&copy; 2026 Rafael Monti</small>
           </div>
-        </nav>
+        </div></nav>
 
         <div
           class="offcanvas offcanvas-start d-md-none"
@@ -237,94 +315,121 @@
 
         <main class="site-main flex-grow-1">
           <div class="d-md-none mb-4">
-            <button class="btn btn-outline-light rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+            <button class="btn btn-outline-dark rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
           </div>
 
           <section class="mb-5">
-            <h2 class="h6 mb-3" style="text-transform: uppercase; letter-spacing: 0.02em;">Work</h2>
-            <div class="work-grid">
-              <div>
-                <a class="project-card" href="project-ashe-versus.html">
-                  <div class="work-tile">
-                    <img src="assets/ashe trophy.png" alt="Ashe Trophy" class="project-image">
-                  </div>
-                  <div class="work-caption">Ashe Versus | Moderna U.S. Open</div>
-                </a>
+            <div class="work-columns">
+              <div class="work-col">
+                <div class="work-col-label">WORK</div>
+                <div>
+                  <a class="project-card" href="project-apart.html" data-role="Animation Director">
+                    <div class="work-tile">
+                      <video autoplay loop muted playsinline class="project-video">
+                        <source src="assets/apart/apart-street_v05.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="work-caption">Apart | Short Film</div>
+                  </a>
+                </div>
+                <div>
+                  <a class="project-card" href="project-ashe-versus.html" data-role="Animation Director">
+                    <div class="work-tile">
+                      <img src="assets/ashe trophy.png" alt="Ashe Trophy" class="project-image">
+                    </div>
+                    <div class="work-caption">Ashe Versus | Moderna</div>
+                  </a>
+                </div>
+                <div>
+                  <a class="project-card" href="project-o-boticario-chochigh.html" data-role="Animation Director">
+                    <div class="work-tile">
+                      <img src="assets/boticario chochigh/strawberry.png" alt="O Boticario Strawberry" class="project-image">
+                    </div>
+                    <div class="work-caption">Choc High | O Boticario</div>
+                  </a>
+                </div>
+                <div>
+                  <a class="project-card" href="project-title-2.html" data-role="Animation Director">
+                    <div class="work-tile">
+                      <img src="assets/the wave/001_the wave cover.jpg" alt="The Wave Cover" class="project-image">
+                    </div>
+                    <div class="work-caption">The Wave | AstraZeneca</div>
+                  </a>
+                </div>
+                <div>
+                  <a class="project-card" href="project-doritos-buffalo-wings.html" data-role="Motion Graphics + 2D Animation">
+                    <div class="work-tile">
+                      <img src="assets/doritos buffalo wings/buffalo wings bg.png" alt="Doritos Buffalo Wings by Supla" class="project-image">
+                    </div>
+                    <div class="work-caption">Doritos Buffalo Wings by Supla | Doritos</div>
+                  </a>
+                </div>
               </div>
 
-              <div>
-                <a class="project-card" href="project-spotify-spreadsheets.html">
-                  <div class="work-tile">
-                    <video autoplay loop muted playsinline class="project-video">
-                      <source src="assets/spotify spreadsheets/MUSIC-VIDEO_CLIP-3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <div class="work-caption">Spotify Spreadbeats</div>
-                </a>
-              </div>
-
-              <div>
-                <a class="project-card" href="project-o-boticario-chochigh.html">
-                  <div class="work-tile">
-                    <img src="assets/boticario chochigh/strawberry.png" alt="O Boticario Strawberry" class="project-image">
-                  </div>
-                  <div class="work-caption">O Boticario | Chochigh</div>
-                </a>
-              </div>
-
-              <div>
-                <a class="project-card" href="project-this-is-havaianas.html">
-                  <div class="work-tile">
-                    <img src="assets/havaianas/00_havaianas cover_small.png" alt="This Is Havaianas Cover" class="project-image">
-                  </div>
-                  <div class="work-caption">This Is Havaianas</div>
-                </a>
-              </div>
-
-              <div>
-                <a class="project-card" href="project-title-2.html">
-                  <div class="work-tile">
-                    <img src="assets/the wave/001_the wave cover.jpg" alt="The Wave Cover" class="project-image">
-                  </div>
-                  <div class="work-caption">THE WAVE | AstraZeneca</div>
-                </a>
-              </div>
-
-              <div>
-                <a class="project-card" href="project-title-3.html">
-                  <div class="work-tile">
-                    <img src="assets/havaianas wild/thumb_havaianas_wild.jpg" alt="Havaianas Gone Wild" class="project-image">
-                  </div>
-                  <div class="work-caption">HAVAIANAS | GONE WILD</div>
-                </a>
+              <div class="work-col">
+                <div class="work-col-spacer" aria-hidden="true"></div>
+                <div>
+                  <a class="project-card" href="project-spotify-spreadsheets.html" data-role="Animation Director">
+                    <div class="work-tile">
+                      <video autoplay loop muted playsinline class="project-video">
+                        <source src="assets/spotify spreadsheets/MUSIC-VIDEO_CLIP-3.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="work-caption">Spreadbeats | Spotify</div>
+                  </a>
+                </div>
+                <div>
+                  <a class="project-card" href="project-this-is-havaianas.html" data-role="Animation Director">
+                    <div class="work-tile">
+                      <img src="assets/havaianas/00_havaianas cover_small.png" alt="This Is Havaianas Cover" class="project-image">
+                    </div>
+                    <div class="work-caption">This Is Havaianas | Havaianas</div>
+                  </a>
+                </div>
+                <div>
+                  <a class="project-card" href="project-title-3.html" data-role="Animation Director">
+                    <div class="work-tile">
+                      <img src="assets/havaianas wild/thumb_havaianas_wild.jpg" alt="Havaianas Gone Wild" class="project-image">
+                    </div>
+                    <div class="work-caption">Gone Wild | Havaianas</div>
+                  </a>
+                </div>
+                <div>
+                  <a class="project-card" href="project-new-balance.html" data-role="Motion Graphics + 2D Animation">
+                    <div class="work-tile">
+                      <img src="assets/new balance/Screenshot NB.png" alt="We All End Up In The Same Starting Line" class="project-image">
+                    </div>
+                    <div class="work-caption">We All End Up In The Same Starting Line | New Balance</div>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+    <div id="role-tooltip"></div>
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDJHWLwT9XzJOzODQFug4z2VVs1S3nJja0",
-      authDomain: "rmonti-site.firebaseapp.com",
-      projectId: "rmonti-site",
-      storageBucket: "rmonti-site.firebasestorage.app",
-      messagingSenderId: "817746470734",
-      appId: "1:817746470734:web:8f8df6dd364f43c4bba01f",
-      measurementId: "G-JK7GRXHNCR"
-    };
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+      const roleTooltip = document.getElementById('role-tooltip');
+      const roleOffset = 20;
+
+      document.querySelectorAll('.project-card[data-role]').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          roleTooltip.textContent = card.dataset.role;
+          roleTooltip.style.display = 'block';
+        });
+        card.addEventListener('mouseleave', () => {
+          roleTooltip.style.display = 'none';
+        });
+      });
+
+      document.addEventListener('mousemove', e => {
+        if (roleTooltip.style.display === 'none') return;
+        roleTooltip.style.left = (e.clientX + roleOffset) + 'px';
+        roleTooltip.style.top = (e.clientY + roleOffset) + 'px';
+      });
+    </script>
   </body>
 </html>

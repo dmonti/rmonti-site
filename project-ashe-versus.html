@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rafa - Ashe Versus | Moderna U.S. Open</title>
+    <title>Rafa - Ashe Versus | Moderna</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
       body { font-family: 'Courier New', Courier, monospace; }
       div.sidebar {
-        padding: 200px 0 25px;
+        padding: 160px 0 25px;
       }
       div.sidebar > span {
         font-size: 1.1rem;
@@ -23,24 +23,24 @@
       }
 
       :root {
-        --bs-body-color: #fff;
-        --bs-body-bg: #000;
-        --bs-border-color: #fff;
-        --bs-link-color: #fff;
-        --bs-link-hover-color: #fff;
+        --bs-body-color: #000;
+        --bs-body-bg: #fff8ee;
+        --bs-border-color: #000;
+        --bs-link-color: #000;
+        --bs-link-hover-color: #000;
       }
 
       body {
-        color: #fff;
-        background: #000;
+        color: #000;
+        background: #fff8ee;
       }
 
       a,
       a:visited,
       a:hover,
       a:active {
-        color: #fff !important;
-        text-decoration-color: #fff;
+        color: #000 !important;
+        text-decoration-color: #000;
       }
 
       .border,
@@ -48,16 +48,17 @@
       .border-end,
       .border-bottom,
       .border-start {
-        border-color: #fff !important;
+        border-color: #000 !important;
       }
 
       nav.site-sidebar {
         width: 170px;
         text-align: left;
+        align-items: center;
       }
 
       nav.site-sidebar .sidebar {
-        align-items: flex-start;
+        align-items: center;
         text-align: left;
       }
 
@@ -66,7 +67,9 @@
         padding: 4px 0;
         text-align: left;
         text-transform: uppercase;
-      }
+        }
+      nav.site-sidebar a:not(.sidebar-logo-link) { margin-left: 31px; }
+
 
       .site-shell {
         min-height: 100vh;
@@ -80,8 +83,8 @@
         left: 0;
         width: 170px;
         height: 100vh;
-        overflow-y: auto;
-        padding-bottom: 16px;
+        overflow-y: auto; overflow-x: hidden;
+        padding-bottom: 16px; padding-top: 24px; padding-left: 15px; padding-right: 15px;
         z-index: 1030;
       }
       
@@ -89,13 +92,10 @@
         margin-left: 170px;
       }
 
-      nav.site-sidebar .social {
-        margin-top: auto;
-      }
+      nav.site-sidebar .social { margin-top: auto; margin-bottom: auto; font-size: 0.6rem; }
+      nav.site-sidebar .social a { padding: 1px 0; }
 
-      nav.site-sidebar .footer {
-        padding-top: 8px;
-      }
+      nav.site-sidebar .footer { position: absolute; bottom: 16px; left: 24px; font-size: 0.62rem; }
 
       nav.site-sidebar .footer small {
         white-space: nowrap;
@@ -107,22 +107,22 @@
       }
 
       .offcanvas {
-        background: #000;
-        color: #fff;
-        border-color: #fff;
+        background: #fff8ee;
+        color: #000;
+        border-color: #000;
         box-shadow: none;
       }
 
       .offcanvas-header {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #000;
       }
 
-      .btn-close { opacity: 1; filter: invert(1); }
+      .btn-close { opacity: 1; filter: none; }
 
       .project-hero {
         width: auto;
-        border: 1px solid #fff;
-        background: #000;
+        border: 1px solid #000;
+        background: #fff8ee;
         height: 260px;
         margin-top: -60px;
         margin-left: -80px;
@@ -161,19 +161,13 @@
         margin-bottom: 24px;
       }
 
-      .project-body {
-        max-width: 110ch;
-        font-size: 0.75rem;
-        line-height: 1.65;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-      }
+      .project-body { max-width: 126ch; font-size: 0.9rem; line-height: 1.55; }
 
       .project-video {
-        width: min(760px, 92%);
+        width: min(760px, 60vw);
         aspect-ratio: 16 / 9;
-        border: 1px solid #fff;
-        background: #000;
+        border: 1px solid #000;
+        background: #fff8ee;
         margin: 70px auto 0;
       }
 
@@ -182,6 +176,19 @@
         height: 100%;
         border: 0;
         display: block;
+      }
+
+      .project-text-video-row {
+        display: block;
+      }
+
+      .project-text-video-row .project-body {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .project-text-video-row .project-video {
+        margin: 70px auto 0;
       }
 
       @media (max-width: 991.98px) {
@@ -198,6 +205,15 @@
         div.sidebar {
           padding: 40px 0 25px;
         }
+
+        .project-text-video-row {
+          flex-direction: column;
+        }
+
+        .project-text-video-row .project-video {
+          flex: 0 0 auto;
+          width: 100%;
+        }
       }
 
       @media (max-width: 767.98px) {
@@ -213,23 +229,23 @@
   </head>
   <body>
     <div class="d-flex site-shell">
-      <nav class="site-sidebar d-none d-md-flex flex-column border-end p-4">
+      <nav class="site-sidebar d-none d-md-flex flex-column border-end"><div style="display:flex;flex-direction:column;flex:1;width:fit-content;align-items:flex-start;margin:0 auto;">
         <div class="sidebar d-flex flex-column gap-2">
-          <a href="about.html" class="text-decoration-none fw-bold" style="font-size:1.1rem;">Rafael<br />Monti</a>
+          <a href="about.html" class="text-decoration-none sidebar-logo-link"><img src="assets/MONTI_motion_v03.png" alt="Rafael Monti" style="width: 140px; height: auto; display: block;"></a>
         </div>
         <a href="about.html" class="text-decoration-none">About</a>
         <a href="index.html" class="text-decoration-none">Work</a>
         <a href="awards.html" class="text-decoration-none">Awards</a>
         <a href="bts.html" class="text-decoration-none">BTS</a>
         <a href="contact.html" class="text-decoration-none">Contact</a>
-        <div class="social d-flex flex-column gap-1 mt-auto pt-3">
+        <div class="social d-flex flex-column gap-0 pt-3">
           <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/rafael-monti-7b039855/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
         </div>
         <div class="footer pt-3">
           <small>&copy; 2026 Rafael Monti</small>
         </div>
-      </nav>
+      </div></nav>
 
       <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header">
@@ -253,26 +269,28 @@
 
       <main class="site-main flex-grow-1">
         <div class="d-md-none mb-4">
-          <button class="btn btn-outline-light rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+          <button class="btn btn-outline-dark rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
         </div>
 
         <div class="project-hero">
           <img src="assets/ashe%20trophy.png" alt="Ashe Versus" />
         </div>
 
-        <div class="project-title">Ashe Versus | Moderna U.S. Open</div>
-        <div class="project-role">ROLE | DIRECTOR, ANIMATION</div>
-        <div class="project-body">
-          ARTHUR ASHE WAS AN ELEGANT FORCETO BE RECKONED WITH. THE FIRST BLACK MAN TO WIN A GRAND SLAM IN THE WORLD OF TENNIS, A CIVIL RIGHTS ACTIVIST, HEALTH AWARENESS EDUCATOR, AND EMMY-AWARD WINNING WRITER, WE’RE CELEBRATING ASHE’S ACHIEVEMENTS IN OBSERVANCE OF BLACK HISTORY MONTH IN THE US, IN COLLABORATION WITH THE YOUTH COMPANY AND TBWA CHIAT NY. A MIXED MEDIA PROJECT, THIS SHORT FILM IS AN HOMAGE TO ARTHUR’S UNIQUE STYLE,ON AND OFF COURT. COMBINING VOICE RECORDINGS, PHOTOGRAPHS, AND ARCHIVAL FOOTAGE, THE FILM CELEBRATES HIS LIFE AND HONOURS HIS ENDURING LEGACY.
-        </div>
+        <div class="project-title">Ashe Versus | Moderna</div>
+        <div class="project-role">ROLE | ANIMATION DIRECTOR</div>
+        <div class="project-text-video-row">
+          <div class="project-body">
+            Arthur Ashe was an elegant force to be reckoned with. The first Black man to win a Grand Slam in the world of tennis, a civil rights activist, health awareness educator, and Emmy-Award winning writer, we're celebrating Ashe's achievements in observance of Black History Month in the US, in collaboration with The Youth Company and TBWA Chiat NY. A mixed media project, this short film is an homage to Arthur's unique style, on and off court. Combining voice recordings, photographs, and archival footage, the film celebrates his life and honours his enduring legacy.
+          </div>
 
-        <div class="project-video">
-          <iframe
-            src="https://player.vimeo.com/video/909300493"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="Ashe Versus | Moderna U.S. Open"
-          ></iframe>
+          <div class="project-video">
+            <iframe
+              src="https://player.vimeo.com/video/909300493"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              title="Ashe Versus | Moderna U.S. Open"
+            ></iframe>
+          </div>
         </div>
 
         <div style="margin-top: 70px;">
@@ -478,5 +496,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
   </body>
 </html>

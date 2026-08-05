@@ -3,51 +3,54 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rafa - This Is Havaianas</title>
+    <title>Rafa - This Is Havaianas | Havaianas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
       body { font-family: 'Courier New', Courier, monospace; }
-      div.sidebar { padding: 200px 0 25px; }
+      div.sidebar { padding: 160px 0 25px; }
       div.sidebar > span { font-size: 1.1rem; font-weight: bold; }
       nav > .footer { font-size: 0.8rem; }
       nav > .social { font-size: 0.8rem; padding-bottom: 50px; }
 
       :root {
-        --bs-body-color: #fff;
-        --bs-body-bg: #000;
-        --bs-border-color: #fff;
-        --bs-link-color: #fff;
-        --bs-link-hover-color: #fff;
+        --bs-body-color: #000;
+        --bs-body-bg: #fff8ee;
+        --bs-border-color: #000;
+        --bs-link-color: #000;
+        --bs-link-hover-color: #000;
       }
 
-      body { color: #fff; background: #000; }
+      body { color: #000; background: #fff8ee; }
 
       a,
       a:visited,
       a:hover,
-      a:active { color: #fff !important; text-decoration-color: #fff; }
+      a:active { color: #000 !important; text-decoration-color: #000; }
 
       .border,
       .border-top,
       .border-end,
       .border-bottom,
-      .border-start { border-color: #fff !important; }
+      .border-start { border-color: #000 !important; }
 
-      nav.site-sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 170px; height: 100vh; text-align: left; overflow-y: auto; z-index: 1030; }
-      nav.site-sidebar .sidebar { align-items: flex-start; text-align: left; }
+      nav.site-sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 170px; height: 100vh; text-align: left; align-items: center; overflow-y: auto; overflow-x: hidden; z-index: 1030; }
+      nav.site-sidebar .sidebar { align-items: center; text-align: left; }
       nav.site-sidebar a { display: block; padding: 4px 0; text-align: left; text-transform: uppercase; }
+      nav.site-sidebar a:not(.sidebar-logo-link) { margin-left: 31px; }
 
-      .site-shell { min-height: 100vh; position: relative; }
+
+      .site-shell { min-height: calc(100vh - 40px); position: relative; }
       .site-main { padding: 60px 60px 60px 80px; margin-left: 170px; }
 
-      nav.site-sidebar { padding-bottom: 16px; }
-      nav.site-sidebar .social { margin-top: auto; }
-      nav.site-sidebar .footer { padding-top: 8px; }
+      nav.site-sidebar { padding-bottom: 16px; padding-top: 24px; padding-left: 15px; padding-right: 15px; }
+      nav.site-sidebar .social { margin-top: auto; margin-bottom: auto; font-size: 0.6rem; }
+      nav.site-sidebar .social a { padding: 1px 0; }
+      nav.site-sidebar .footer { position: absolute; bottom: 16px; left: 24px; font-size: 0.62rem; }
       nav.site-sidebar .footer small { white-space: nowrap; display: block; }
 
-      .offcanvas { background: #000; color: #fff; border-color: #fff; box-shadow: none; }
-      .offcanvas-header { border-bottom: 1px solid #fff; }
-      .btn-close { opacity: 1; filter: invert(1); }
+      .offcanvas { background: #fff8ee; color: #000; border-color: #000; box-shadow: none; }
+      .offcanvas-header { border-bottom: 1px solid #000; }
+      .btn-close { opacity: 1; filter: none; }
 
       .project-title { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 16px; }
       .project-role { font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 24px; }
@@ -439,23 +442,23 @@
   </head>
   <body>
     <div class="d-flex site-shell">
-      <nav class="site-sidebar d-none d-md-flex flex-column border-end p-4">
+      <nav class="site-sidebar d-none d-md-flex flex-column border-end"><div style="display:flex;flex-direction:column;flex:1;width:fit-content;align-items:flex-start;margin:0 auto;">
         <div class="sidebar d-flex flex-column gap-2">
-          <a href="about.html" class="text-decoration-none fw-bold" style="font-size:1.1rem;">Rafael<br />Monti</a>
+          <a href="about.html" class="text-decoration-none sidebar-logo-link"><img src="assets/MONTI_motion_v03.png" alt="Rafael Monti" style="width: 140px; height: auto; display: block;"></a>
         </div>
         <a href="about.html" class="text-decoration-none">About</a>
         <a href="index.html" class="text-decoration-none">Work</a>
         <a href="awards.html" class="text-decoration-none">Awards</a>
         <a href="bts.html" class="text-decoration-none">BTS</a>
         <a href="contact.html" class="text-decoration-none">Contact</a>
-        <div class="social d-flex flex-column gap-1 mt-auto pt-3">
+        <div class="social d-flex flex-column gap-0 pt-3">
           <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/rafael-monti-7b039855/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
         </div>
         <div class="footer pt-3">
           <small>&copy; 2026 Rafael Monti</small>
         </div>
-      </nav>
+      </div></nav>
 
       <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header">
@@ -478,11 +481,11 @@
 
       <main class="site-main flex-grow-1">
         <div class="d-md-none mb-4">
-          <button class="btn btn-outline-light rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+          <button class="btn btn-outline-dark rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
         </div>
 
-        <div class="project-title">This Is Havaianas</div>
-        <div class="project-role">ROLE | DIRECTOR, ANIMATION</div>
+        <div class="project-title">This Is Havaianas | Havaianas</div>
+        <div class="project-role">ROLE | ANIMATION DIRECTOR</div>
         
         <div class="project-content">
           <!-- Cover Image -->
@@ -763,5 +766,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
   </body>
 </html>
