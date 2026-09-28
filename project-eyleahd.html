@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rafa - Suzanne Valadon and Edgar Degas | Eyleahd</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      body { font-family: 'Courier New', Courier, monospace; }
+      div.sidebar { padding: 160px 0 25px; }
+      div.sidebar > span { font-size: 1.1rem; font-weight: bold; }
+      nav > .footer { font-size: 0.8rem; }
+      nav > .social { font-size: 0.8rem; padding-bottom: 50px; }
+
+      :root {
+        --bs-body-color: #000;
+        --bs-body-bg: #fff8ee;
+        --bs-border-color: #000;
+        --bs-link-color: #000;
+        --bs-link-hover-color: #000;
+      }
+
+      body { color: #000; background: #fff8ee; }
+
+      a,
+      a:visited,
+      a:hover,
+      a:active { color: #000 !important; text-decoration-color: #000; }
+
+      .border,
+      .border-top,
+      .border-end,
+      .border-bottom,
+      .border-start { border-color: #000 !important; }
+
+      nav.site-sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 170px; height: 100vh; text-align: left; align-items: center; overflow-y: auto; overflow-x: hidden; z-index: 1030; }
+      nav.site-sidebar .sidebar { align-items: center; text-align: left; }
+      nav.site-sidebar a { display: block; padding: 4px 0; text-align: left; text-transform: uppercase; }
+      nav.site-sidebar a:not(.sidebar-logo-link) { margin-left: 31px; }
+
+
+      .site-shell { min-height: 100vh; position: relative; }
+      .site-main { padding: 60px 60px 60px 80px; margin-left: 170px; }
+
+      nav.site-sidebar { padding-bottom: 16px; padding-top: 24px; padding-left: 15px; padding-right: 15px; }
+      nav.site-sidebar .social { margin-top: auto; margin-bottom: auto; font-size: 0.6rem; }
+      nav.site-sidebar .social a { padding: 1px 0; }
+      nav.site-sidebar .footer { position: absolute; bottom: 16px; left: 24px; font-size: 0.62rem; }
+      nav.site-sidebar .footer small { white-space: nowrap; display: block; }
+
+      .offcanvas { background: #fff8ee; color: #000; border-color: #000; box-shadow: none; }
+      .offcanvas-header { border-bottom: 1px solid #000; }
+      .btn-close { opacity: 1; filter: none; }
+
+      .project-hero { width: 100%; border: 1px solid #000; background: #fff8ee; height: 260px; margin-bottom: 24px; overflow: hidden; }
+
+      .project-hero img,
+      .project-hero video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      .project-hero {
+        width: auto;
+        margin-top: -60px;
+        margin-left: -80px;
+        margin-right: -60px;
+      }
+
+      @media (min-width: 768px) {
+        .project-hero {
+          border-left: 0;
+        }
+      }
+      .project-title { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 16px; }
+
+      .project-role { font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 24px; }
+      .project-body { max-width: 70ch; font-size: 0.9rem; line-height: 1.55; }
+
+      .project-video {
+        width: min(760px, 60vw);
+        aspect-ratio: 16 / 9;
+        border: 1px solid #000;
+        background: #fff8ee;
+        margin: 0 auto 40px;
+      }
+
+      .project-video iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      @media (max-width: 991.98px) {
+        .project-video {
+          width: 100%;
+        }
+      }
+
+      .eyleahd-half {
+        width: 50%;
+        margin: 40px auto;
+        border: 1px solid #000;
+      }
+
+      .eyleahd-half video,
+      .eyleahd-half img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .eyleahd-half iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 0;
+        display: block;
+        pointer-events: none;
+      }
+
+      .zoom-hover {
+        display: block;
+        overflow: hidden;
+      }
+
+      .zoom-hover img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .zoom-hover:hover img {
+        transform: scale(3.4);
+      }
+
+      @media (max-width: 991.98px) {
+        .site-main { padding: 24px 16px; }
+
+        .project-hero {
+          margin-top: -24px;
+          margin-left: -16px;
+          margin-right: -16px;
+        }
+        div.sidebar { padding: 40px 0 25px; }
+
+        .eyleahd-half {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        nav.site-sidebar {
+          display: none;
+        }
+
+        main.site-main {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex site-shell">
+      <nav class="site-sidebar d-none d-md-flex flex-column border-end"><div style="display:flex;flex-direction:column;flex:1;width:fit-content;align-items:flex-start;margin:0 auto;">
+        <div class="sidebar d-flex flex-column gap-2">
+          <a href="about.html" class="text-decoration-none sidebar-logo-link"><img src="assets/MONTI_motion_v03.png" alt="Rafael Monti" style="width: 140px; height: auto; display: block;"></a>
+        </div>
+        <a href="about.html" class="text-decoration-none">About</a>
+        <a href="index.html" class="text-decoration-none">Work</a>
+        <a href="awards.html" class="text-decoration-none">Awards</a>
+        <a href="bts.html" class="text-decoration-none">BTS</a>
+        <a href="contact.html" class="text-decoration-none">Contact</a>
+        <div class="social d-flex flex-column gap-0 pt-3">
+          <a href="https://www.instagram.com/r_montis" target="_blank" rel="noopener" class="text-decoration-none">Instagram</a>
+          <a href="https://www.linkedin.com/in/rafael-monti-7b039855/" target="_blank" rel="noopener" class="text-decoration-none">LinkedIn</a>
+        </div>
+        <div class="footer pt-3">
+          <small>&copy; 2026 Rafael Monti</small>
+        </div>
+      </div></nav>
+
+      <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="sidebarOffcanvasLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="d-flex flex-column gap-2">
+            <a class="text-decoration-none" href="about.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">About</a>
+            <a class="fw-semibold text-decoration-none" href="index.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Work</a>
+            <a class="text-decoration-none" href="awards.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Awards</a>
+            <a class="text-decoration-none" href="bts.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">BTS</a>
+            <a class="text-decoration-none" href="contact.html" data-bs-dismiss="offcanvas" style="text-transform: uppercase;">Contact</a>
+            <div class="pt-3">
+              <a class="text-decoration-none" href="https://www.instagram.com/r_montis" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="site-main flex-grow-1">
+        <div class="d-md-none mb-4">
+          <button class="btn btn-outline-dark rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas">Menu</button>
+        </div>
+
+        <div class="project-hero">
+          <video autoplay loop muted playsinline>
+            <source src="assets/eyleahd/05_V1-0004_SH110_EYLEA_by3_v02_GRD4.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="project-title">Suzanne Valadon and Edgar Degas | Eyleahd</div>
+        <div class="project-role">ROLE | ANIMATION DIRECTOR</div>
+
+        <div class="project-body">
+          I was the animation director for this project, directed by @biancaaleal, produced by @theyouth_company, and painted by the best team @atelietrintaenove ⚡️
+          <br><br>
+          Countless frames were painted, photographed, printed, and painted all over again to match the texture of Edgar Degas's work, who shifted his techniques over the years due to a degenerative disease that affected his vision.
+        </div>
+
+        <div class="project-video" style="margin-top: 2rem;">
+          <iframe
+            src="https://player.vimeo.com/video/1196463726?fl=pl&fe=sh"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            title="Suzanne Valadon and Edgar Degas | Eyleahd"
+          ></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+
+        <div style="margin-top: 40px;">
+          <img src="assets/eyleahd/01_IMG_6553.jpg" alt="Eyleahd" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/eyleahd/00_EYLEA_HD_DC_16_260526_master.00_00_28_18.Still003.png" alt="Eyleahd" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <img src="assets/eyleahd/02_EYLEA_HD_DC_16_260526_master.00_00_42_17.Still004.png" alt="Eyleahd" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div>
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+            <source src="assets/eyleahd/03_V1-0002_SH090_EYLEA_by3_GRD4.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; width: 100%;">
+          <div>
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/eyleahd/04_V1-0003_SH100_EYLEA_by3_v02_GRD4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div>
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/eyleahd/05_V1-0004_SH110_EYLEA_by3_v02_GRD4.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="eyleahd-half">
+          <video autoplay loop muted playsinline>
+            <source src="assets/eyleahd/06 GALERA LOOPING.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; width: 100%; margin-top: 24px;">
+          <div>
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/eyleahd/07_V1-0007_SH240_EYLEA_by3_v01_GRD4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <a class="zoom-hover" href="assets/eyleahd/08_V1-0007_SH240_EYLEA_by3_v01_GRD4.mov.00_00_03_21.Still001.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" decoding="async" src="assets/eyleahd/08_V1-0007_SH240_EYLEA_by3_v01_GRD4.mov.00_00_03_21.Still001.jpg" alt="Eyleahd detail">
+          </a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; width: 100%;">
+          <div>
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+              <source src="assets/eyleahd/09_V1-0005_SH250_EYLEA_by3_v05_260407_GRD11.mp4" type="video/mp4">
+            </video>
+          </div>
+          <a class="zoom-hover" href="assets/eyleahd/10-_V1-0005_SH250_EYLEA_by3_v05_260407_GRD11.00_00_00_21.Still001.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" decoding="async" src="assets/eyleahd/10-_V1-0005_SH250_EYLEA_by3_v05_260407_GRD11.00_00_00_21.Still001.jpg" alt="Eyleahd detail">
+          </a>
+        </div>
+
+        <div>
+          <img loading="lazy" decoding="async" src="assets/eyleahd/11_54FC387B-746F-47C0-80E0-7849A09EAE61.jpg" alt="Eyleahd" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div class="eyleahd-half">
+          <iframe
+            src="https://www.youtube.com/embed/ZjmNJSQt24I?autoplay=1&mute=1&loop=1&playlist=ZjmNJSQt24I&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Eyleahd - Acrobata"
+          ></iframe>
+        </div>
+
+        <div style="margin-top: 24px; margin-bottom: 24px;">
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+            <source src="assets/eyleahd/13_V1-0008_SH350_EYLEA_by3_v02_GRD4.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div style="margin-top: 80px; padding-bottom: 80px; font-size: 0.75rem; line-height: 1.8; letter-spacing: 0.02em; max-width: 70ch;">
+          <div style="font-weight: bold; margin-bottom: 16px;">CREDITS</div>
+
+          <div style="font-weight: bold; margin-bottom: 16px;">SUZANNE VALADON AND EDGAR DEGAS | EYLEAHD</div>
+
+          <div style="margin-bottom: 16px;">
+            Production Company: THE YOUTH<br>
+            Animation Company: COLOSSAL<br>
+            Director: BIBO<br>
+            DOP: Pierre de Kerchove<br>
+            Production Designer: Martino Piccinini<br>
+            Animation Director: Rafael Monti
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Executive Creative Director: João Machado, Eduardo Lubiazi<br>
+            Executive Producer: Carol Cherobim, Chico Pedreira, Daniel Maia, Eduardo Lubiazi, João Machado.<br>
+            Head of Production: Daniel Maia<br>
+            Producer: Daniel Maia, Yasmim Uehara, Mauricio Kazu Yamashita<br>
+            Post Production Coordinator: Yasmim Uehara<br>
+            VFX Supervisor: Rodrigo Stradiotto<br>
+            Editor: Henrique José<br>
+            Colorist: Johann Stollmeier
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Production Coordinator: Carol Cherobim<br>
+            Assistant Coordinator: Camila Pires, Lu Krasa<br>
+            Account: Carol Cherobim, Daniel Reigada, Camila Pires e Lu Krasa<br>
+            Finance Department: Iza Lubiazi<br>
+            Production Coordinator: Stefanie Korb<br>
+            Line Producer: Daniel Reigada
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            1st Assistant Director: Milton Oliveira<br>
+            2nd Assistant Director: Juliana Dias Caldas<br>
+            Choreographer Live Action: Daniela Cezar<br>
+            Choreographer Animation: Gabb Cabo Verde
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Casting Producer: Amanda Michelini Schmitz, Viviane Oliveira<br>
+            Casting Assistant: Jordan Maia Da Silva Padilha<br>
+            Degas: Fabio Marcoff<br>
+            Suzanne: Angélica Bueno<br>
+            Ballerinas: Eduarda Philippsen de Almeida, Pietra Sehn Assmus, Alice Teresinha Zeferino dos Santos, Camila Consi Corrêa
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Costume Designer: Isadora Bertolucci<br>
+            Costume Assistant: Samara Raquel Pereira da Silva<br>
+            Set Costumer: Márcia Rosane Bueno Gorski<br>
+            Makeup Artist: Johnny Left<br>
+            Makeup Assistant: Morenique Vianna
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Production Manager: Daniel Lombardi, Aline Simmi Da Silva<br>
+            Production Assistant: Sofia Lombardi, Jade Treptow Chemale<br>
+            Location Manager: Bruno De Souza Palaoro<br>
+            Location Assistant: Carolina Ely Arantes, Victor Curi Aiub Miranda
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Head of art: BIBO, Rafael Monti<br>
+            Finishing Editor: Luciana Lima de Paula<br>
+            Conform and Delivery: Luciana Lima de Paula, Johann Stollmeier, Ricardo Jug<br>
+            Videocase Editor: Graubi Garcia<br>
+            Project Manager: Amanda de Oliveira<br>
+            Creative assistant: Michel Vier<br>
+            Assistant Project Manager: Eduardo Harger
+          </div>
+
+          <div style="font-weight: bold; margin-bottom: 16px;">CUT DOWN UNIT</div>
+
+          <div style="margin-bottom: 16px;">
+            Producer: Antonela Castro<br>
+            Coordinator: Nicole Lia Rêgo da Silva<br>
+            Editor: Tom Laterza<br>
+            Storyboard: Walfrido Monteiro<br>
+            Concept Artist: Fábio Miraglia<br>
+            Illustrator: Bruno Rosal<br>
+            Designer: "Xinoby" Alexander Mojavi Dias
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Animation Coordinator: Yasmim Uehara, Karla Milkem<br>
+            2D Animation Supervisor: Breno Licursi<br>
+            2D Animation Rough and Tiedown: Siddhartha Ahearne, Renata Santa Helena, Robb Reis, Diones Ignacio, Gabriel Chagas, Gabriela Zanatta, Ramona Krüger, Felipe Damasco<br>
+            2D Animation Clean-up: Giovanna Jahjah, Mateuz Fernandes, Luiz Henrique Alvares, Ulisses Jucá, "Piko" Clara Luz, Christiana de Souza Fernandes Sales
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            Nuke Compositing: Rodrigo Ridolpho<br>
+            After Effects Compositing: Saulo de Castro<br>
+            Motion Graphics: Saulo de Castro
+          </div>
+
+          <div>
+            Printing Studio: Farbewerk Fine Art Lab<br>
+            Printing Producer: Daniel Farbewerk<br>
+            Painting Studio: ATELIÊ 39<br>
+            Painting Artist Coordinators: Ana Beatriz Artigas, João Paulo de Carvalho<br>
+            Painting Artists: Ana Beatriz Artigas, João Paulo de Carvalho, Felipe Segalla, Maria Augusta Bistafa, Robson Adão Gomes, Luiz Gustavo Moreira Padovani, Gabriel Kleinke, Luísa Covolan Baltazar
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  </body>
+</html>

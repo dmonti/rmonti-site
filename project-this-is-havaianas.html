@@ -66,6 +66,29 @@
       .project-cover {
         width: 100%;
         margin-bottom: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-cover .behance-badge {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        width: 62px;
+        z-index: 10;
+        display: block;
+        transform: translateY(-23px);
+        transition: transform 0.35s ease;
+      }
+
+      .project-cover .behance-badge img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .project-cover .behance-badge:hover {
+        transform: translateY(0);
       }
       
       .project-cover img {
@@ -485,12 +508,15 @@
         </div>
 
         <div class="project-title">This Is Havaianas | Havaianas</div>
-        <div class="project-role">ROLE | ANIMATION DIRECTOR</div>
+        <div class="project-role">ROLE | DIRECTOR</div>
         
         <div class="project-content">
           <!-- Cover Image -->
           <div class="project-cover">
             <img src="assets/havaianas/001 top page image_small.png" alt="This Is Havaianas" />
+            <a href="https://www.behance.net/gallery/149204628/This-is-Havaianas" target="_blank" rel="noopener" class="behance-badge">
+              <img src="assets/havaianas/behance badge.png" alt="Behance Badge">
+            </a>
           </div>
           
           <!-- Project Description -->
@@ -506,7 +532,7 @@
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                       referrerpolicy="strict-origin-when-cross-origin" 
                       style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                      title="THIS IS HAVAIANAS DC | Maldita">
+                      title="THIS IS HAVAIANAS DC | Maldita (Rafael Monti e Vinicius Kluge)">
               </iframe>
             </div>
             <script src="https://player.vimeo.com/api/player.js"></script>
@@ -514,81 +540,81 @@
           
           <!-- GIFs and other media -->
           <div class="project-media">
-            <img src="assets/havaianas/004 football_small.gif" alt="Football Animation" />
+            <video autoplay loop muted playsinline aria-label="Football Animation"><source src="assets/havaianas/004 football_small.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/005 surf flip_small.gif" alt="Surf Flip Animation" />
+            <video autoplay loop muted playsinline aria-label="Surf Flip Animation"><source src="assets/havaianas/005 surf flip_small.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/006 hvn display.gif" alt="Havaianas Display" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/006 hvn display.gif" alt="Havaianas Display" />
           </div>
           
           <div class="project-grid">
             <div>
-              <img src="assets/havaianas/007 character design.png" alt="Character Design" />
+              <img loading="lazy" decoding="async" src="assets/havaianas/007 character design.png" alt="Character Design" />
             </div>
             <div>
-              <img src="assets/havaianas/008 assets_small.png" alt="Project Assets" />
+              <img loading="lazy" decoding="async" src="assets/havaianas/008 assets_small.png" alt="Project Assets" />
             </div>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/009 concept art.png" alt="Concept Art" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/009 concept art.png" alt="Concept Art" />
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/010 3d havaianas walk_small.gif" alt="3D Havaianas Walk" />
+            <video autoplay loop muted playsinline aria-label="3D Havaianas Walk"><source src="assets/havaianas/010 3d havaianas walk_small.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
             <div class="equal-row">
               <div class="image-half">
-                <img src="assets/havaianas/011 magic havaianas.gif" alt="Magic Havaianas">
+                <video autoplay loop muted playsinline aria-label="Magic Havaianas"><source src="assets/havaianas/011 magic havaianas.mp4" type="video/mp4"></video>
               </div>
               <div class="image-half">
-                <img src="assets/havaianas/012 heart hvn.jpg" alt="Heart Havaianas">
+                <img loading="lazy" decoding="async" src="assets/havaianas/012 heart hvn.jpg" alt="Heart Havaianas">
               </div>
             </div>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/013 car_small.gif" alt="Car Animation" />
+            <video autoplay loop muted playsinline aria-label="Car Animation"><source src="assets/havaianas/013 car_small.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/014 hvn everywhere.gif" alt="Havaianas Everywhere" />
+            <video autoplay loop muted playsinline aria-label="Havaianas Everywhere"><source src="assets/havaianas/014 hvn everywhere.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-grid">
             <div>
-              <img src="assets/havaianas/015 surfing hvn_small.png" alt="Surfing Havaianas" />
+              <img loading="lazy" decoding="async" src="assets/havaianas/015 surfing hvn_small.png" alt="Surfing Havaianas" />
             </div>
             <div>
-              <img src="assets/havaianas/016 hvn test_small.gif" alt="Havaianas Test" />
+              <video autoplay loop muted playsinline aria-label="Havaianas Test"><source src="assets/havaianas/016 hvn test_small.mp4" type="video/mp4"></video>
             </div>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/017 this is brazil.png" alt="This is Brazil" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/017 this is brazil.png" alt="This is Brazil" />
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/018 characters concept_small.png" alt="Characters Concept" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/018 characters concept_small.png" alt="Characters Concept" />
           </div>
 
           <div class="project-media">
-            <img src="assets/havaianas/019 character final_small.png" alt="Character Final" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/019 character final_small.png" alt="Character Final" />
           </div>
           
           <div class="project-media">
             <div style="display: flex; align-items: flex-start;">
               <div style="flex: 1920; min-width: 0;">
-                <img src="assets/havaianas/020 chair reference_small.jpg" alt="Chair Reference" style="width: 100%; height: auto; display: block;">
+                <img loading="lazy" decoding="async" src="assets/havaianas/020 chair reference_small.jpg" alt="Chair Reference" style="width: 100%; height: auto; display: block;">
               </div>
               <div style="flex: 997; min-width: 0;">
-                <img src="assets/havaianas/021 magazine.gif" alt="Magazine Animation" style="width: 100%; height: auto; display: block;">
+                <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;" aria-label="Magazine Animation"><source src="assets/havaianas/021 magazine.mp4" type="video/mp4"></video>
               </div>
             </div>
           </div>
@@ -596,123 +622,123 @@
           <div class="project-media">
             <div class="equal-row">
               <div class="image-half">
-                <img src="assets/havaianas/022 blink.gif" alt="Blink Animation">
+                <video autoplay loop muted playsinline aria-label="Blink Animation"><source src="assets/havaianas/022 blink.mp4" type="video/mp4"></video>
               </div>
               <div class="image-half">
-                <img src="assets/havaianas/023 models.jpg" alt="Models">
+                <img loading="lazy" decoding="async" src="assets/havaianas/023 models.jpg" alt="Models">
               </div>
             </div>
           </div>
           
           <div class="project-grid">
             <div>
-              <img src="assets/havaianas/024 flying.png" alt="Flying" />
+              <img loading="lazy" decoding="async" src="assets/havaianas/024 flying.png" alt="Flying" />
             </div>
             <div>
-              <img src="assets/havaianas/025 bath.png" alt="Bath" />
+              <img loading="lazy" decoding="async" src="assets/havaianas/025 bath.png" alt="Bath" />
             </div>
           </div>
           
           <div style="display: flex; align-items: flex-start; margin-bottom: -12.5%;">
             <div style="flex: 1; min-width: 0;">
-              <img src="assets/havaianas/026 character design.png" alt="Character Design" style="width: 100%; height: auto; display: block; transform: scale(1.25); transform-origin: top left;">
+              <img loading="lazy" decoding="async" src="assets/havaianas/026 character design.png" alt="Character Design" style="width: 100%; height: auto; display: block; transform: scale(1.25); transform-origin: top left;">
             </div>
             <div style="flex: 1; min-width: 0;">
-              <img src="assets/havaianas/027 character face_small.gif" alt="Character Face Animation" style="width: 100%; height: auto; display: block; transform: scale(0.75); transform-origin: top right;">
+              <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; transform: scale(0.75); transform-origin: top right;" aria-label="Character Face Animation"><source src="assets/havaianas/027 character face_small.mp4" type="video/mp4"></video>
             </div>
           </div>
           
           <div class="project-grid">
             <div>
-              <img src="assets/havaianas/028 flow animation_small.gif" alt="Flow Animation" />
+              <video autoplay loop muted playsinline aria-label="Flow Animation"><source src="assets/havaianas/028 flow animation_small.mp4" type="video/mp4"></video>
             </div>
             <div>
-              <img src="assets/havaianas/029 hippie.webp" alt="Hippie" />
+              <img loading="lazy" decoding="async" src="assets/havaianas/029 hippie.webp" alt="Hippie" />
             </div>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/030 hippie references_small.jpg" alt="Hippie References" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/030 hippie references_small.jpg" alt="Hippie References" />
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/031 mixed media text.png" alt="Mixed Media Text" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/031 mixed media text.png" alt="Mixed Media Text" />
           </div>
           
           <div class="project-media">
             <div class="equal-row">
               <div class="image-half">
-                <img src="assets/havaianas/032 main idea.gif" alt="Main Idea">
+                <video autoplay loop muted playsinline aria-label="Main Idea"><source src="assets/havaianas/032 main idea.mp4" type="video/mp4"></video>
               </div>
               <div class="image-half">
-                <img src="assets/havaianas/033 zoom in.gif" alt="Zoom In Animation">
+                <video autoplay loop muted playsinline aria-label="Zoom In Animation"><source src="assets/havaianas/033 zoom in.mp4" type="video/mp4"></video>
               </div>
             </div>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/034 hvn balls.gif" alt="Havaianas Balls Animation" />
+            <video autoplay loop muted playsinline aria-label="Havaianas Balls Animation"><source src="assets/havaianas/034 hvn balls.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/035 character 2d to 3d_small.gif" alt="Character 2D to 3D Transition" />
+            <video autoplay loop muted playsinline aria-label="Character 2D to 3D Transition"><source src="assets/havaianas/035 character 2d to 3d_small.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/036 macro 3d.gif" alt="Macro 3D Animation" />
+            <video autoplay loop muted playsinline aria-label="Macro 3D Animation"><source src="assets/havaianas/036 macro 3d.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/037 hvn brasil.webp" alt="Havaianas Brasil" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/037 hvn brasil.webp" alt="Havaianas Brasil" />
           </div>
 
           <div class="project-media">
             <div class="equal-row">
               <div class="image-half" style="flex: 1;">
-                <img src="assets/havaianas/038 drink with hvn.jpg" alt="Drink with Havaianas">
+                <img loading="lazy" decoding="async" src="assets/havaianas/038 drink with hvn.jpg" alt="Drink with Havaianas">
               </div>
               <div class="image-half" style="flex: 1;">
-                <img src="assets/havaianas/039 hvn clean_small.jpg" alt="Clean Havaianas">
+                <img loading="lazy" decoding="async" src="assets/havaianas/039 hvn clean_small.jpg" alt="Clean Havaianas">
               </div>
               <div class="image-half" style="flex: 1;">
-                <img src="assets/havaianas/040 old man.jpg" alt="Old Man">
+                <img loading="lazy" decoding="async" src="assets/havaianas/040 old man.jpg" alt="Old Man">
               </div>
             </div>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/041 breakdown text.png" alt="Breakdown Text" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/041 breakdown text.png" alt="Breakdown Text" />
           </div>
           
           <div class="project-media">
             <div style="display: flex; width: 100%; align-items: flex-start;">
               <div style="flex: 1236; min-width: 0;">
-                <img src="assets/havaianas/042 character ages.png" alt="Character Ages" style="width: 100%; height: auto; display: block;">
+                <img loading="lazy" decoding="async" src="assets/havaianas/042 character ages.png" alt="Character Ages" style="width: 100%; height: auto; display: block;">
               </div>
               <div style="flex: 675; min-width: 0;">
-                <img src="assets/havaianas/043 character transformation.gif" alt="Character Transformation" style="width: 100%; height: auto; display: block;">
+                <img loading="lazy" decoding="async" src="assets/havaianas/043 character transformation.gif" alt="Character Transformation" style="width: 100%; height: auto; display: block;">
               </div>
             </div>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/044 city of god reference break down_small.gif" alt="City of God Reference" />
+            <video autoplay loop muted playsinline aria-label="City of God Reference"><source src="assets/havaianas/044 city of god reference break down_small.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/045 brasil symbols_small.jpg" alt="Brasil Symbols" />
+            <img loading="lazy" decoding="async" src="assets/havaianas/045 brasil symbols_small.jpg" alt="Brasil Symbols" />
           </div>
           
           <div class="project-media">
             <div style="display: flex; width: 100%; align-items: flex-start;">
               <div style="flex: 758; min-width: 0;">
-                <img src="assets/havaianas/046 football girl.gif" alt="Football Girl" style="width: 100%; height: auto; display: block;">
+                <img loading="lazy" decoding="async" src="assets/havaianas/046 football girl.gif" alt="Football Girl" style="width: 100%; height: auto; display: block;">
               </div>
               <div style="flex: 758; min-width: 0;">
-                <img src="assets/havaianas/047 football rough.gif" alt="Football Rough" style="width: 100%; height: auto; display: block;">
+                <img loading="lazy" decoding="async" src="assets/havaianas/047 football rough.gif" alt="Football Rough" style="width: 100%; height: auto; display: block;">
               </div>
               <div style="flex: 910; min-width: 0;">
-                <img src="assets/havaianas/048 goalkeeper.gif" alt="Goalkeeper" style="width: 100%; height: auto; display: block;">
+                <img loading="lazy" decoding="async" src="assets/havaianas/048 goalkeeper.gif" alt="Goalkeeper" style="width: 100%; height: auto; display: block;">
               </div>
             </div>
           </div>
@@ -720,46 +746,108 @@
           <div class="project-media">
             <div style="display: flex; width: 100%; align-items: flex-start;">
               <div style="flex: 1920; min-width: 0;">
-                <img src="assets/havaianas/049 characters running_small.gif" alt="Characters Running" style="width: 100%; height: auto; display: block;">
+                <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;" aria-label="Characters Running"><source src="assets/havaianas/049 characters running_small.mp4" type="video/mp4"></video>
               </div>
               <div style="flex: 827; min-width: 0;">
-                <img src="assets/havaianas/050 character idea.gif" alt="Character Idea" style="width: 100%; height: auto; display: block;">
+                <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;" aria-label="Character Idea"><source src="assets/havaianas/050 character idea.mp4" type="video/mp4"></video>
               </div>
             </div>
           </div>
 
           <div class="project-media">
-            <img src="assets/havaianas/051 kombi.jpg" alt="Kombi" style="width: 100%; height: auto; display: block;">
+            <img loading="lazy" decoding="async" src="assets/havaianas/051 kombi.jpg" alt="Kombi" style="width: 100%; height: auto; display: block;">
           </div>
 
           <div class="project-media">
-            <img src="assets/havaianas/052 3d to 2d_small.gif" alt="3D to 2D" style="width: 100%; height: auto; display: block;">
+            <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;" aria-label="3D to 2D"><source src="assets/havaianas/052 3d to 2d_small.mp4" type="video/mp4"></video>
           </div>
 
           <div class="project-media">
             <div style="display: flex; width: 100%; align-items: flex-start;">
               <div style="flex: 810; min-width: 0;">
-                <img src="assets/havaianas/053 car reveal.gif" alt="Car Reveal" style="width: 100%; height: auto; display: block;">
+                <img loading="lazy" decoding="async" src="assets/havaianas/053 car reveal.gif" alt="Car Reveal" style="width: 100%; height: auto; display: block;">
               </div>
               <div style="flex: 827; min-width: 0;">
-                <img src="assets/havaianas/054 kombi animation.gif" alt="Kombi Animation" style="width: 100%; height: auto; display: block;">
+                <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;" aria-label="Kombi Animation"><source src="assets/havaianas/054 kombi animation.mp4" type="video/mp4"></video>
               </div>
               <div style="flex: 844; min-width: 0;">
-                <img src="assets/havaianas/055 kombi animation 2.gif" alt="Kombi Animation 2" style="width: 100%; height: auto; display: block;">
+                <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;" aria-label="Kombi Animation 2"><source src="assets/havaianas/055 kombi animation 2.mp4" type="video/mp4"></video>
               </div>
             </div>
           </div>
 
           <div class="project-media">
-            <img src="assets/havaianas/056 original sound track text.png" alt="Original Sound Track" style="width: 100%; height: auto; display: block;">
+            <img loading="lazy" decoding="async" src="assets/havaianas/056 original sound track text.png" alt="Original Sound Track" style="width: 100%; height: auto; display: block;">
           </div>
           
           <div class="project-media">
-            <img src="assets/havaianas/057 girl pool.gif" alt="Girl Pool" />
+            <video autoplay loop muted playsinline aria-label="Girl Pool"><source src="assets/havaianas/057 girl pool.mp4" type="video/mp4"></video>
           </div>
           
           <div class="project-media text-center" style="padding: 20px 0;">
-            <img src="assets/havaianas/058 thank you text.png" alt="Thank You" style="width: 100%; height: auto; display: block;">
+            <img loading="lazy" decoding="async" src="assets/havaianas/058 thank you text.png" alt="Thank You" style="width: 100%; height: auto; display: block;">
+          </div>
+
+          <div style="margin-top: 80px; padding-bottom: 80px; font-size: 0.75rem; line-height: 1.8; letter-spacing: 0.02em; max-width: 70ch;">
+            <div style="font-weight: bold; margin-bottom: 16px;">FICHA TÉCNICA</div>
+
+            <div style="font-weight: bold; margin-bottom: 16px;">THIS IS HAVAIANAS</div>
+
+            <div style="margin-bottom: 16px;">
+              Produtora de imagem: The Youth<br>
+              Diretor: Maldita (Rafael Monti e Vinicius Kluge)<br>
+              Produtor: Daniel Maia<br>
+              Direção Criativa: João Machado<br>
+              Produção Executiva: Carol Cherobim e João Machado<br>
+              Atendimento: Carol Cherobim e Camila Pires<br>
+              Financeiro: Iza Lubiazi<br>
+              Pós-produção/ VFX: COLOSSAL<br>
+              Supervisão de pós-produção: Diogo Gameiro<br>
+              Montagem: Maldita (Rafael Monti e Vinicius Kluge)<br>
+              Conform: André Albuquerque e Victor Balestrin<br>
+              Motion: Adelir Boeira e Janaína Veiga<br>
+              3D: Vinícius Lavor, Leandro Beltran, Everton Schneider, Lucas Pereira, Henrique Miranda, Bruno Cornelsen, Daniel Meurer e Sacha Carletti<br>
+              Finalização: Luciana Lima<br>
+              Direção de Arte: Rodolfo Garcia<br>
+              Composição lead: Adelir Boeira<br>
+              Composição: Emerson Cordeiro Junior, Gabriel Rocha e Marcos Rigobello<br>
+              Coordenação de Animação: Lu Krasa e Renata Peterlini<br>
+              Supervisor de Clean Up: Thallyson Mikael<br>
+              Assistente de Produção: Gabriela Alves<br>
+              Assistente Criativa: Bianca Leal<br>
+              Storyboard: Gustavo Santos<br>
+              Concept art: Fernando Molina<br>
+              Ilustração lead: Fernando Molina, Diogo Saraiva<br>
+              Ilustração: Studio Lasca, Eduardo Rosa, Lucas Sales, Pevê Azevedo, Marília Mafé e Geff Silva.<br>
+              Animação: André Ruivo, Geovani Angelo, Natália Faria, Guma Nutinski, Bruno Brasil, Rafael Pah, Robb Reis, Pedro Solano, Murilo Prudêncio, Felipe Emerson, Thalyne Chrystyna, Arthemis Iannuzzi, Robson Vilalba, Pedro Peluso, Jaison Roberto, Deco Daviola, Thomás Lóes, Diones Ignacio e Higor Fernandes.<br>
+              Assistência de animação: Thallyson Mikael, Mateuz Fernandes, Gui Klein, Brenda Maryan, Moacyr Neto, Diones Ignacio, Rosinaldo Lages, Thalyne Chrystyna, Bruno Martin, Sabrina Melo, Pedro Solano e Willian Lieder.
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              Agência: AlmapBBDO<br>
+              Anunciante: Alpargatas<br>
+              Cliente: Havaianas<br>
+              Campanha: This is Havaianas<br>
+              CCO: Pernil<br>
+              Diretores de Criação: Antonia Zobaran, Fernando Duarte e Henrique Del Lama<br>
+              Criação: Carlos Yanke, Michele Gorodski, Andre Paulo Arteze, Sara de Souza, Vitor Chagas, Marcos Lee, Gustavo Tasselli, Francis França, Bruno Bizuti, Victor Yves, Hiroito Takashi e Vinicius Biss<br>
+              Atendimento: Maysa Lopes, Camila Weissheimer, Guilherme Alcatrão, Mariana Silveira, Warley Vieira, Mayara Cortez, Milena Ferezim, Cairo Ribas e Leonardo Stevanato<br>
+              Planejamento: João Gabriel Fernandes e Janaína Agostini<br>
+              Produção Audiovisual: Diego Villas Bôas, Tatiana Angelim Martins e Vera Jacinto<br>
+              Aprovação do Cliente: Fernanda Romano, Maria Fernanda Albuquerque, Matheus Gonzalez, Maria Eduarda Manga e Mariana Corradi
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              Produtora de Som: Cabaret<br>
+              Produção Musical: Guile Oliveira e Letícia Medeiros<br>
+              Compositor: André Henrique<br>
+              Mixagem: Gab Scatolin<br>
+              Finalização: Letícia Medeiros<br>
+              Atendimento: Ingrid Lopes, Flávia Caparelli e Bárbara Russiano<br>
+              Coordenação: Verusca Garcia, Chandra Lima, Débora Mello e Carol Oliveira<br>
+              Locução Português e Inglês: Maria Eduarda Manga<br>
+              Locução Espanhol: Maria Carolina Lapolli ME
+            </div>
           </div>
         </div>
       </main>
